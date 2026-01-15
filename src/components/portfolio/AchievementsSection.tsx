@@ -13,7 +13,7 @@ export const AchievementsSection = () => {
   return (
     <section id="achievements" className="py-20 lg:py-32 relative bg-muted/30" ref={ref}>
       <div className="container mx-auto px-4">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : {}} className="text-center mb-16">
+        <motion.div initial={{ opacity: 0, y: 60 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.7, ease: "easeOut" }} className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-4 section-title-underline">Achievements</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto mt-6">Recognition and accomplishments</p>
         </motion.div>
@@ -22,7 +22,7 @@ export const AchievementsSection = () => {
           {achievements.map((achievement, index) => {
             const IconComponent = iconMap[achievement.icon] || Award;
             return (
-              <motion.div key={achievement.id} initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ delay: index * 0.1 }}>
+              <motion.div key={achievement.id} initial={{ opacity: 0, y: 50, scale: 0.9 }} animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}} transition={{ duration: 0.6, delay: index * 0.12, ease: "easeOut" }}>
                 <Card className="glass border-primary/20 h-full hover-lift text-center">
                   <CardContent className="p-6">
                     <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-neon-gradient flex items-center justify-center glow-purple">

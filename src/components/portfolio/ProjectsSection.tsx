@@ -16,14 +16,14 @@ export const ProjectsSection = () => {
   return (
     <section id="projects" className="py-20 lg:py-32 relative" ref={ref}>
       <div className="container mx-auto px-4">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : {}} className="text-center mb-16">
+        <motion.div initial={{ opacity: 0, y: 60 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.7, ease: "easeOut" }} className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-4 section-title-underline">Projects</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto mt-6">Showcase of my recent work and side projects</p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
-            <motion.div key={project.id} initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ delay: index * 0.1 }}>
+            <motion.div key={project.id} initial={{ opacity: 0, y: 60, scale: 0.95 }} animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}} transition={{ duration: 0.6, delay: index * 0.15, ease: "easeOut" }}>
               <Card className="glass border-primary/20 overflow-hidden hover-lift group cursor-pointer" onClick={() => setSelectedProject(project)}>
                 <div className="relative h-48 overflow-hidden">
                   <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />

@@ -1,16 +1,13 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Linkedin, Github, Instagram, Mail, Twitter, ArrowDown } from "lucide-react";
 import { personalInfo } from "@/data/portfolioData";
 import { Button } from "@/components/ui/button";
 
-const socialIcons = {
-  linkedin: Linkedin,
-  github: Github,
-  instagram: Instagram,
-  twitter: Twitter,
-};
-
 export const HeroSection = () => {
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 500], [0, 150]);
+  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+
   const handleScrollToAbout = () => {
     const element = document.querySelector("#about");
     if (element) {
@@ -26,18 +23,18 @@ export const HeroSection = () => {
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background pointer-events-none" />
 
-      {/* Floating orbs */}
-      <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-neon-purple/20 rounded-full blur-3xl animate-float" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-neon-blue/20 rounded-full blur-3xl animate-float" style={{ animationDelay: "-3s" }} />
-      <div className="absolute top-1/2 right-1/3 w-48 h-48 bg-neon-cyan/20 rounded-full blur-3xl animate-float" style={{ animationDelay: "-1.5s" }} />
+      {/* Floating orbs with parallax */}
+      <motion.div style={{ y }} className="absolute top-1/4 left-1/4 w-64 h-64 bg-neon-purple/20 rounded-full blur-3xl animate-float" />
+      <motion.div style={{ y }} className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-neon-blue/20 rounded-full blur-3xl animate-float" />
+      <motion.div style={{ y }} className="absolute top-1/2 right-1/3 w-48 h-48 bg-neon-cyan/20 rounded-full blur-3xl animate-float" />
 
-      <div className="container mx-auto px-4 relative z-10">
+      <motion.div style={{ opacity }} className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-20">
           {/* Profile Image */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
+            initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="relative"
           >
             <div className="relative w-56 h-56 md:w-72 md:h-72 lg:w-80 lg:h-80">
@@ -53,9 +50,9 @@ export const HeroSection = () => {
               {/* Availability badge */}
               {personalInfo.availability && (
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5 }}
+                  initial={{ opacity: 0, y: 20, scale: 0.8 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{ delay: 0.8, duration: 0.5 }}
                   className="absolute -bottom-2 left-1/2 -translate-x-1/2 glass px-4 py-2 rounded-full flex items-center gap-2 whitespace-nowrap"
                 >
                   <span className="w-3 h-3 bg-neon-green rounded-full pulse-green" />
@@ -67,24 +64,24 @@ export const HeroSection = () => {
 
           {/* Text Content */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
             className="text-center lg:text-left max-w-xl"
           >
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
+              transition={{ delay: 0.4, duration: 0.6 }}
               className="text-sm md:text-base text-primary font-mono mb-2"
             >
               👋 Hello, I'm
             </motion.p>
             
             <motion.h1
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
+              transition={{ delay: 0.5, duration: 0.6 }}
               className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4"
             >
               <span className="bg-clip-text text-transparent bg-neon-gradient text-glow">
@@ -93,18 +90,18 @@ export const HeroSection = () => {
             </motion.h1>
             
             <motion.h2
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
+              transition={{ delay: 0.6, duration: 0.6 }}
               className="text-xl md:text-2xl text-muted-foreground font-medium mb-4"
             >
               {personalInfo.headline}
             </motion.h2>
             
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
+              transition={{ delay: 0.7, duration: 0.6 }}
               className="text-muted-foreground mb-8"
             >
               {personalInfo.tagline}
@@ -112,12 +109,12 @@ export const HeroSection = () => {
 
             {/* Social Links */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7 }}
+              transition={{ delay: 0.8, duration: 0.6 }}
               className="flex items-center justify-center lg:justify-start gap-3 mb-8"
             >
-              {Object.entries(personalInfo.socialLinks).map(([key, url]) => {
+              {Object.entries(personalInfo.socialLinks).map(([key, url], index) => {
                 if (key === "whatsapp") return null;
                 const Icon = key === "linkedin" ? Linkedin : 
                            key === "github" ? Github :
@@ -129,6 +126,9 @@ export const HeroSection = () => {
                     href={url}
                     target="_blank"
                     rel="noopener noreferrer"
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.9 + index * 0.1, duration: 0.4 }}
                     className="p-3 rounded-full glass hover:glow-purple transition-all duration-300 hover:scale-110"
                     whileHover={{ y: -5 }}
                     whileTap={{ scale: 0.9 }}
@@ -139,6 +139,9 @@ export const HeroSection = () => {
               })}
               <motion.a
                 href={`mailto:${personalInfo.email}`}
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 1.3, duration: 0.4 }}
                 className="p-3 rounded-full glass hover:glow-cyan transition-all duration-300 hover:scale-110"
                 whileHover={{ y: -5 }}
                 whileTap={{ scale: 0.9 }}
@@ -149,9 +152,9 @@ export const HeroSection = () => {
 
             {/* CTA Buttons */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
+              transition={{ delay: 1, duration: 0.6 }}
               className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
             >
               <Button
@@ -179,7 +182,7 @@ export const HeroSection = () => {
         <motion.button
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
+          transition={{ delay: 1.5 }}
           onClick={handleScrollToAbout}
           className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
         >
@@ -191,7 +194,7 @@ export const HeroSection = () => {
             <ArrowDown className="w-5 h-5" />
           </motion.div>
         </motion.button>
-      </div>
+      </motion.div>
     </section>
   );
 };
