@@ -50,13 +50,13 @@ export const Navbar = () => {
           </span>
         </motion.a>
 
-        {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center gap-1">
+        {/* Navigation Links - Always Visible */}
+        <div className="hidden md:flex items-center gap-1 overflow-x-auto scrollbar-hide">
           {navLinks.map((link) => (
             <motion.button
               key={link.href}
               onClick={() => handleNavClick(link.href)}
-              className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative group"
+              className="px-3 py-2 text-xs lg:text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative group whitespace-nowrap"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -66,32 +66,30 @@ export const Navbar = () => {
           ))}
         </div>
 
-        {/* Desktop Actions */}
-        <div className="hidden lg:flex items-center gap-3">
+        {/* Actions */}
+        <div className="flex items-center gap-2">
           <ThemeToggle />
           <Button
             onClick={() => handleNavClick("#contact")}
-            className="bg-neon-gradient hover:opacity-90 text-white font-medium glow-purple"
+            size="sm"
+            className="hidden sm:flex bg-neon-gradient hover:opacity-90 text-white font-medium glow-purple text-xs lg:text-sm"
           >
-            Contact Me
+            Contact
           </Button>
-        </div>
-
-        {/* Mobile Menu Button */}
-        <div className="flex lg:hidden items-center gap-3">
-          <ThemeToggle />
+          
+          {/* Mobile Menu Button - Only for very small screens */}
           <Button
             variant="ghost"
             size="icon"
             onClick={() => setIsOpen(!isOpen)}
-            className="relative z-50"
+            className="md:hidden relative z-50"
           >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </Button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Only for small screens */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -99,24 +97,25 @@ export const Navbar = () => {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden glass-dark"
+            className="md:hidden glass-dark"
           >
-            <div className="container mx-auto px-4 py-6 flex flex-col gap-2">
+            <div className="container mx-auto px-4 py-4 flex flex-col gap-1">
               {navLinks.map((link, index) => (
                 <motion.button
                   key={link.href}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.05 }}
+                  transition={{ delay: index * 0.03 }}
                   onClick={() => handleNavClick(link.href)}
-                  className="py-3 text-left text-lg font-medium text-foreground hover:text-primary transition-colors border-b border-border/30"
+                  className="py-2.5 text-left text-sm font-medium text-foreground hover:text-primary transition-colors border-b border-border/20"
                 >
                   {link.label}
                 </motion.button>
               ))}
               <Button
                 onClick={() => handleNavClick("#contact")}
-                className="mt-4 bg-neon-gradient hover:opacity-90 text-white font-medium"
+                size="sm"
+                className="mt-3 bg-neon-gradient hover:opacity-90 text-white font-medium"
               >
                 Contact Me
               </Button>

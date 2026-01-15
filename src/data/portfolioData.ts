@@ -54,47 +54,27 @@ export const skills = {
   categories: [
     {
       name: "Programming Languages",
-      icon: "Code",
-      skills: [
-        { name: "TypeScript", level: 95 },
-        { name: "JavaScript", level: 95 },
-        { name: "Python", level: 85 },
-        { name: "Go", level: 70 },
-        { name: "Rust", level: 60 },
-      ],
+      skills: ["Python", "JavaScript", "Java", "C++", "R", "SQL"],
     },
     {
-      name: "Frontend Frameworks",
-      icon: "Layout",
-      skills: [
-        { name: "React", level: 95 },
-        { name: "Next.js", level: 90 },
-        { name: "Vue.js", level: 75 },
-        { name: "Tailwind CSS", level: 95 },
-        { name: "Framer Motion", level: 85 },
-      ],
+      name: "Artificial Intelligence",
+      skills: ["TensorFlow", "PyTorch", "Hugging Face", "Keras", "Scikit-learn", "OpenCV"],
     },
     {
-      name: "Backend & Databases",
-      icon: "Database",
-      skills: [
-        { name: "Node.js", level: 90 },
-        { name: "PostgreSQL", level: 85 },
-        { name: "MongoDB", level: 80 },
-        { name: "Redis", level: 75 },
-        { name: "GraphQL", level: 80 },
-      ],
+      name: "Machine Learning",
+      skills: ["Deep Learning", "NLP", "Computer Vision", "Neural Networks", "Reinforcement Learning", "GANs"],
     },
     {
-      name: "DevOps & Tools",
-      icon: "Settings",
-      skills: [
-        { name: "Docker", level: 85 },
-        { name: "AWS", level: 80 },
-        { name: "Git", level: 95 },
-        { name: "CI/CD", level: 85 },
-        { name: "Kubernetes", level: 70 },
-      ],
+      name: "Data Science",
+      skills: ["Pandas", "NumPy", "Matplotlib", "Seaborn", "Jupyter", "Google Colab"],
+    },
+    {
+      name: "Web Development",
+      skills: ["React", "Next.js", "Node.js", "FastAPI", "Flask", "Tailwind CSS"],
+    },
+    {
+      name: "Cloud & DevOps",
+      skills: ["AWS", "Google Cloud", "Docker", "Git", "GitHub", "MLflow"],
     },
   ],
 };
