@@ -32,13 +32,13 @@ export const ContactSection = () => {
   return (
     <section id="contact" className="py-20 lg:py-32 relative" ref={ref}>
       <div className="container mx-auto px-4">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : {}} className="text-center mb-16">
+        <motion.div initial={{ opacity: 0, y: 60 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.7, ease: "easeOut" }} className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-4 section-title-underline">Get In Touch</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto mt-6">Have a project in mind? Let's connect!</p>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
-          <motion.div initial={{ opacity: 0, x: -30 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ delay: 0.2 }}>
+          <motion.div initial={{ opacity: 0, x: -60 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}>
             <Card className="glass border-primary/20">
               <CardContent className="p-6 lg:p-8">
                 <h3 className="text-xl font-display font-semibold mb-6">Send a Message</h3>
@@ -52,7 +52,7 @@ export const ContactSection = () => {
             </Card>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, x: 30 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ delay: 0.3 }} className="flex flex-col justify-center">
+          <motion.div initial={{ opacity: 0, x: 60 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }} className="flex flex-col justify-center">
             <h3 className="text-xl font-display font-semibold mb-6">Connect With Me</h3>
             <div className="space-y-4 mb-8">
               <a href={`mailto:${personalInfo.email}`} className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"><Mail className="w-5 h-5" />{personalInfo.email}</a>

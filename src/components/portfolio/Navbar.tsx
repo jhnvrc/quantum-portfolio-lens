@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navLinks = [
@@ -14,24 +14,13 @@ const navLinks = [
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = navLinks.map(link => link.href.substring(1));
-      const scrollPosition = window.scrollY + 150;
-
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = document.getElementById(sections[i]);
-        if (section && section.offsetTop <= scrollPosition) {
-          setActiveSection(sections[i]);
-          break;
-        }
-      }
+      setScrolled(window.scrollY > 50);
     };
-
     window.addEventListener("scroll", handleScroll);
-    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -48,50 +37,75 @@ export const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-6 left-1/2 -translate-x-1/2 z-50"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "glass-dark py-3"
+          : "bg-transparent py-5"
+      }`}
     >
-      {/* Desktop Navigation - Centered Pill */}
-      <div className="hidden md:flex items-center gap-1 bg-background/80 backdrop-blur-md rounded-full px-2 py-2 border border-primary/20 shadow-lg shadow-primary/5">
-        {navLinks.map((link) => (
-          <motion.button
-            key={link.href}
-            onClick={() => handleNavClick(link.href)}
-            className={`px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 ${
-              activeSection === link.href.substring(1)
-                ? "bg-primary/20 text-primary border border-primary/30"
-                : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
-            }`}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            {link.label}
-          </motion.button>
-        ))}
-      </div>
-
-      {/* Mobile Menu Button */}
-      <div className="md:hidden flex items-center">
-        <Button
-          variant="ghost"
-          size="icon"
-          onClick={() => setIsOpen(!isOpen)}
-          className="bg-card/90 backdrop-blur-md rounded-full border border-border/50"
+      <div className="container mx-auto px-4 flex items-center justify-between">
+        {/* Logo */}
+        <motion.a
+          href="#home"
+          className="flex items-center gap-2 text-xl font-display font-bold"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
         >
-          {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </Button>
+          <Rocket className="h-6 w-6 text-primary" />
+          <span className="bg-clip-text text-transparent bg-neon-gradient">
+            Portfolio
+          </span>
+        </motion.a>
+
+        {/* Navigation Links */}
+        <div className="hidden md:flex items-center gap-1">
+          {navLinks.map((link) => (
+            <motion.button
+              key={link.href}
+              onClick={() => handleNavClick(link.href)}
+              className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative group"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              {link.label}
+              <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300" />
+            </motion.button>
+          ))}
+        </div>
+
+        {/* Actions */}
+        <div className="flex items-center gap-2">
+          <Button
+            onClick={() => handleNavClick("#contact")}
+            size="sm"
+            className="hidden sm:flex bg-neon-gradient hover:opacity-90 text-white font-medium glow-purple text-xs lg:text-sm"
+          >
+            Contact
+          </Button>
+          
+          {/* Mobile Menu Button */}
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden"
+          >
+            {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </Button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
-            className="md:hidden absolute top-14 left-1/2 -translate-x-1/2 bg-card/95 backdrop-blur-md rounded-2xl px-4 py-3 border border-border/50 shadow-lg min-w-[200px]"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden glass-dark"
           >
-            <div className="flex flex-col gap-1">
+            <div className="container mx-auto px-4 py-4 flex flex-col gap-1">
               {navLinks.map((link, index) => (
                 <motion.button
                   key={link.href}
@@ -99,15 +113,18 @@ export const Navbar = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.05 }}
                   onClick={() => handleNavClick(link.href)}
-                  className={`py-2 px-3 text-left text-sm font-medium rounded-lg transition-colors ${
-                    activeSection === link.href.substring(1)
-                      ? "bg-white text-black"
-                      : "text-foreground hover:bg-muted"
-                  }`}
+                  className="py-2.5 text-left text-sm font-medium text-foreground hover:text-primary transition-colors border-b border-border/20"
                 >
                   {link.label}
                 </motion.button>
               ))}
+              <Button
+                onClick={() => handleNavClick("#contact")}
+                size="sm"
+                className="mt-3 bg-neon-gradient hover:opacity-90 text-white font-medium"
+              >
+                Contact Me
+              </Button>
             </div>
           </motion.div>
         )}

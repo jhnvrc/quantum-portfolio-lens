@@ -12,7 +12,7 @@ export const ExperienceSection = () => {
   return (
     <section id="experience" className="py-20 lg:py-32 relative" ref={ref}>
       <div className="container mx-auto px-4">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : {}} className="text-center mb-16">
+        <motion.div initial={{ opacity: 0, y: 60 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.7, ease: "easeOut" }} className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-4 section-title-underline">Experience</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto mt-6">My professional journey and contributions</p>
         </motion.div>
@@ -26,7 +26,7 @@ export const ExperienceSection = () => {
           <TabsContent value="professional">
             <div className="space-y-6">
               {experience.professional.map((exp, index) => (
-                <motion.div key={exp.id} initial={{ opacity: 0, x: -30 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ delay: index * 0.1 }}>
+                <motion.div key={exp.id} initial={{ opacity: 0, x: -60 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6, delay: index * 0.15, ease: "easeOut" }}>
                   <Card className="glass border-primary/20">
                     <CardContent className="p-6">
                       <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
@@ -54,7 +54,7 @@ export const ExperienceSection = () => {
           <TabsContent value="organizational">
             <div className="space-y-6">
               {experience.organizational.map((exp, index) => (
-                <motion.div key={exp.id} initial={{ opacity: 0, x: -30 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ delay: index * 0.1 }}>
+                <motion.div key={exp.id} initial={{ opacity: 0, x: -60 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6, delay: index * 0.15, ease: "easeOut" }}>
                   <Card className="glass border-primary/20">
                     <CardContent className="p-6">
                       <div className="flex justify-between items-start mb-4">
