@@ -51,15 +51,15 @@ export const Navbar = () => {
       className="fixed top-6 left-1/2 -translate-x-1/2 z-50"
     >
       {/* Desktop Navigation - Centered Pill */}
-      <div className="hidden md:flex items-center gap-1 bg-card/90 backdrop-blur-md rounded-full px-2 py-2 border border-border/50 shadow-lg">
+      <div className="hidden md:flex items-center gap-1 bg-background/80 backdrop-blur-md rounded-full px-2 py-2 border border-primary/20 shadow-lg shadow-primary/5">
         {navLinks.map((link) => (
           <motion.button
             key={link.href}
             onClick={() => handleNavClick(link.href)}
             className={`px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 ${
               activeSection === link.href.substring(1)
-                ? "bg-white text-black"
-                : "text-muted-foreground hover:text-foreground"
+                ? "bg-primary/20 text-primary border border-primary/30"
+                : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
             }`}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
