@@ -48,7 +48,7 @@ export const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-6 left-1/2 -translate-x-1/2 z-50"
+      className="fixed top-6 left-0 right-0 z-50 flex justify-center"
     >
       {/* Desktop Navigation - Centered Pill */}
       <div className="hidden md:flex items-center gap-1 bg-[#2a2a2a] rounded-full px-2 py-2 shadow-xl">
