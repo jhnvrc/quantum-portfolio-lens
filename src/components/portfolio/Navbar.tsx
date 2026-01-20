@@ -46,15 +46,15 @@ export const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-6 left-0 right-0 z-50 flex justify-center"
+      className="fixed top-3 sm:top-6 left-0 right-0 z-50 flex justify-center px-2"
     >
       {/* Navigation - Always visible horizontal pill */}
-      <div className="flex items-center gap-0.5 sm:gap-1 bg-[#2a2a2a] rounded-full px-1.5 sm:px-2 py-1.5 sm:py-2 shadow-xl overflow-x-auto max-w-[95vw]">
+      <div className="flex items-center gap-0 sm:gap-1 bg-[#2a2a2a] rounded-full px-1 sm:px-2 py-1 sm:py-2 shadow-xl">
         {navLinks.map((link) => (
           <motion.button
             key={link.href}
             onClick={() => handleNavClick(link.href)}
-            className={`px-2 sm:px-4 md:px-5 py-1.5 sm:py-2 md:py-2.5 text-xs sm:text-sm font-medium rounded-full transition-all duration-300 whitespace-nowrap ${
+            className={`px-2 sm:px-3 md:px-5 py-1 sm:py-1.5 md:py-2.5 text-[10px] sm:text-xs md:text-sm font-medium rounded-full transition-all duration-300 whitespace-nowrap ${
               activeSection === link.href.substring(1)
                 ? "bg-white text-black"
                 : "text-gray-400 hover:text-white"
