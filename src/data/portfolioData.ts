@@ -230,44 +230,7 @@ export const certificates = [
 ];
 
 export const experience = {
-  professional: [
-    {
-      id: "1",
-      role: "AI/ML Intern",
-      company: "Tech Startup Indonesia",
-      location: "Jakarta, Indonesia",
-      period: "Jun 2024 - Aug 2024",
-      description: "Summer internship focusing on NLP model development",
-      responsibilities: [
-        "Developed text classification models for customer feedback",
-        "Created data preprocessing pipelines for training data",
-        "Assisted in deploying ML models to production",
-        "Wrote technical documentation for ML workflows",
-      ],
-      achievements: [
-        "Improved model accuracy by 15% through data augmentation",
-        "Received positive feedback for proactive learning",
-      ],
-    },
-    {
-      id: "2",
-      role: "Teaching Assistant - Data Structures",
-      company: "Universitas Indonesia",
-      location: "Depok, Indonesia",
-      period: "Feb 2024 - Jun 2024",
-      description: "Assisted professor in teaching undergraduate data structures course",
-      responsibilities: [
-        "Conducted weekly lab sessions for 30+ students",
-        "Graded assignments and provided constructive feedback",
-        "Held office hours to help struggling students",
-        "Created supplementary learning materials",
-      ],
-      achievements: [
-        "Helped improve class average by 10%",
-        "Received 4.8/5 rating from student feedback",
-      ],
-    },
-  ],
+  professional: [],
   organizational: [
     {
       id: "1",
