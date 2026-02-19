@@ -8,6 +8,24 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
 
+import studyBuddyImg from "@/assets/project-study-buddy.png";
+import bisindoImg from "@/assets/project-bisindo-team.jpg";
+import coffeeAppImg from "@/assets/project-coffee-app.png";
+import pallpawsImg from "@/assets/project-pallpaws.png";
+import imageProcessingImg from "@/assets/project-image-processing.png";
+import sentraImg from "@/assets/project-sentra.png";
+import hypothermiaImg from "@/assets/project-hypothermia.png";
+
+const projectImages: Record<string, string> = {
+  "study-buddy": studyBuddyImg,
+  "bisindo": bisindoImg,
+  "coffee-app": coffeeAppImg,
+  "pallpaws": pallpawsImg,
+  "image-processing": imageProcessingImg,
+  "sentra": sentraImg,
+  "hypothermia": hypothermiaImg,
+};
+
 export const ProjectsSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -26,7 +44,7 @@ export const ProjectsSection = () => {
             <motion.div key={project.id} initial={{ opacity: 0, y: 60, scale: 0.95 }} animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}} transition={{ duration: 0.6, delay: index * 0.15, ease: "easeOut" }}>
               <Card className="glass border-primary/20 overflow-hidden hover-lift group cursor-pointer" onClick={() => setSelectedProject(project)}>
                 <div className="relative h-48 overflow-hidden">
-                  <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                  <img src={projectImages[project.image] || project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent" />
                   {project.featured && <Badge className="absolute top-4 right-4 bg-neon-gradient">Featured</Badge>}
                 </div>
@@ -59,7 +77,7 @@ export const ProjectsSection = () => {
             </DialogHeader>
             {selectedProject && (
               <div className="space-y-4">
-                <img src={selectedProject.image} alt={selectedProject.title} className="w-full h-48 object-cover rounded-lg" />
+                <img src={projectImages[selectedProject.image] || selectedProject.image} alt={selectedProject.title} className="w-full h-48 object-cover rounded-lg" />
                 <p className="text-muted-foreground">{selectedProject.description}</p>
                 <div>
                   <h4 className="font-semibold mb-2">Features:</h4>
