@@ -326,13 +326,13 @@ export const experience = {
     },
     {
       id: "6",
-      role: "Public Relations & Documentation",
-      organization: "Various Events (Compsphere, CODDOC, Company Visit)",
+      role: "Public Relations & Documentation – CODDOC Social Project",
+      organization: "PUMA Informatics",
       period: "2025",
-      description: "Served as Public Relations Internal, MC, and documentation across multiple events",
+      description: "Contributed to a short-semester social project focused on community impact, handling public relations and event documentation",
       achievements: [
-        "MC for Company Visit – Guest Lecture by GRP",
-        "PR Internal & documentation for Compsphere and CODDOC Social Project",
+        "Managed public relations for the social project",
+        "Handled documentation throughout the project lifecycle",
       ],
     },
     {
@@ -342,6 +342,8 @@ export const experience = {
       period: "2025 - 2026",
       description: "Active involvement across diverse organizational events in different capacities",
       achievements: [
+        "PR Internal & Documentation – Compsphere 2025",
+        "PR Internal & MC – Company Visit, Guest Lecture by GRP 2025",
         "Logistics – Temu Alumni 2025",
         "Design & Documentation – Cool Matriculation 2025",
         "Liaison Officer – AI Powered Collective Intelligence (Faculty Event)",
