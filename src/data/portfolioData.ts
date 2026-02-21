@@ -3,7 +3,7 @@
 export const personalInfo = {
   name: "Your Name",
   headline: "AI/ML Enthusiast & Computer Science Student",
-  tagline: "Aspiring AI Engineer passionate about building intelligent solutions",
+  tagline: "Building AI-driven solutions that solve real-world problems — from computer vision to NLP and beyond.",
   email: "yourname@university.edu",
   phone: "+62 812-3456-7890",
   location: "Jakarta, Indonesia",
@@ -21,9 +21,9 @@ export const personalInfo = {
 };
 
 export const aboutMe = {
-  introduction: `I'm a third-year Computer Science student with a strong passion for Artificial Intelligence and Machine Learning. Currently exploring how AI can solve real-world problems, from natural language processing to computer vision applications.
+  introduction: `Computer Science student specializing in AI/ML with hands-on experience building end-to-end intelligent systems — from deep learning models to full-stack web applications. Proven track record in hackathons, published research, and organizational leadership.
 
-I love building projects that combine my theoretical knowledge with practical implementation. When I'm not studying or coding, you'll find me participating in hackathons, contributing to open-source, or exploring the latest AI research papers.`,
+Actively seeking internship opportunities where I can apply my skills in machine learning, computer vision, and software engineering to deliver impactful solutions.`,
   
   education: [
     {
@@ -262,13 +262,13 @@ export const certificates = [
 ];
 
 export const experience = {
-  professional: [],
   organizational: [
     {
       id: "1",
       role: "Vice of Division Relations & Communication",
       organization: "PUMA Informatics",
       period: "2025 - Present",
+      category: "leadership" as const,
       description: "Supervising events and actively contributing to organizational communication and relations",
       achievements: [
         "Supervisor for multiple organizational events",
@@ -280,6 +280,7 @@ export const experience = {
       role: "Member of Internal Relations",
       organization: "PUMA Informatics",
       period: "2024 - 2025",
+      category: "committee" as const,
       description: "Active member involved in internal events and organizational activities",
       achievements: [
         "Led internal events including welcoming & farewell ceremonies",
@@ -291,6 +292,7 @@ export const experience = {
       role: "Project Manager – Unitics",
       organization: "PUMA Informatics",
       period: "Dec 2024",
+      category: "leadership" as const,
       description: "Led the welcoming party event for internal members of PUMA Informatics",
       achievements: [
         "Successfully managed end-to-end event planning",
@@ -302,6 +304,7 @@ export const experience = {
       role: "Vice Project Manager – Inforum",
       organization: "PUMA Informatics",
       period: "Jul 2025",
+      category: "leadership" as const,
       description: "Co-led the farewell party event for internal members of PUMA Informatics",
       achievements: [
         "Managed event logistics and team coordination",
@@ -313,6 +316,7 @@ export const experience = {
       role: "Supervisor – Unitics 2025 & Workshop Alumni 2026",
       organization: "PUMA Informatics",
       period: "2025 - 2026",
+      category: "leadership" as const,
       description: "Supervised welcoming event for new batch and alumni workshop on AI & Computer Vision",
       achievements: [
         "Mentored new organization members",
@@ -324,6 +328,7 @@ export const experience = {
       role: "Public Relations & Documentation – CODDOC Social Project",
       organization: "PUMA Informatics",
       period: "2025",
+      category: "social" as const,
       description: "Contributed to a short-semester social project focused on community impact, handling public relations and event documentation",
       achievements: [
         "Managed public relations for the social project",
@@ -335,6 +340,7 @@ export const experience = {
       role: "Committee & Participant",
       organization: "Various Events",
       period: "2025 - 2026",
+      category: "committee" as const,
       description: "Active involvement across diverse organizational events in different capacities",
       achievements: [
         "PR Internal & Documentation – Compsphere 2025",
@@ -389,9 +395,9 @@ export const navLinks = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
-  { label: "Certificates", href: "#certificates" },
   { label: "Experience", href: "#experience" },
+  { label: "Projects", href: "#projects" },
   { label: "Achievements", href: "#achievements" },
+  { label: "Certificates", href: "#certificates" },
   { label: "Contact", href: "#contact" },
 ];
