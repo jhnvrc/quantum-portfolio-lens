@@ -75,7 +75,7 @@ export const HeroSection = () => {
               transition={{ delay: 0.4, duration: 0.6 }}
               className="text-sm md:text-base text-primary font-mono mb-2"
             >
-              👋 Hello, I'm
+              Hi, I'm
             </motion.p>
             
             <motion.h1
@@ -173,6 +173,14 @@ export const HeroSection = () => {
                 <a href={personalInfo.cvUrl} download>
                   Download CV
                 </a>
+              </Button>
+              <Button
+                size="lg"
+                variant="ghost"
+                className="w-full sm:w-auto"
+                onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
+              >
+                Contact Me
               </Button>
             </motion.div>
           </motion.div>

@@ -133,7 +133,7 @@ export const ContactSection = () => {
             Get In Touch
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto mt-6">
-            Have a project in mind? Let's connect!
+            Interested in collaborating or have an internship opportunity? Let's connect.
           </p>
         </motion.div>
 
