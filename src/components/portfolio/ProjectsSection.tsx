@@ -15,6 +15,8 @@ import pallpawsImg from "@/assets/project-pallpaws.png";
 import imageProcessingImg from "@/assets/project-image-processing.png";
 import sentraImg from "@/assets/project-sentra.png";
 import hypothermiaImg from "@/assets/project-hypothermia.png";
+import heartguardImg from "@/assets/project-heartguard.png";
+import goldAnalyticsImg from "@/assets/project-gold-analytics.png";
 
 const projectImages: Record<string, string> = {
   "study-buddy": studyBuddyImg,
@@ -24,6 +26,8 @@ const projectImages: Record<string, string> = {
   "image-processing": imageProcessingImg,
   "sentra": sentraImg,
   "hypothermia": hypothermiaImg,
+  "heartguard": heartguardImg,
+  "gold-analytics": goldAnalyticsImg,
 };
 
 export const ProjectsSection = () => {
