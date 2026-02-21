@@ -192,6 +192,38 @@ export const projects = [
     liveUrl: "",
     featured: false,
   },
+  {
+    id: "8",
+    title: "HeartGuard Pro – AI Cardiac Risk Predictor",
+    description: "An AI-powered cardiovascular risk assessment platform built during a hackathon. Predicts patient risk for cardiovascular disease using clinical data including vital signs, lab results, and medical history with real-time risk scoring.",
+    features: [
+      "Patient demographic & clinical data input",
+      "Vital signs & lab results analysis (BP, cholesterol, glucose, BMI)",
+      "Medical history & risk factor assessment",
+      "AI-powered cardiovascular risk prediction & scoring",
+    ],
+    techStack: ["React", "TypeScript", "Python", "Machine Learning", "FastAPI", "Tailwind CSS"],
+    image: "heartguard",
+    githubUrl: "https://github.com/yourname/heartguard-pro",
+    liveUrl: "",
+    featured: true,
+  },
+  {
+    id: "9",
+    title: "Gold Analytics – AI Trading Prediction",
+    description: "A software engineering project featuring AI-powered gold price prediction and analytics. Provides probability analysis, scenario comparisons, gap analysis, and multi-overlay technical indicators for XAU/USD trading decisions.",
+    features: [
+      "AI prediction with probability analysis (bullish/bearish)",
+      "Scenario analysis with risk assessment (Option A vs B)",
+      "Gap analysis for market open/close patterns",
+      "Multi-overlay technical indicators & trend detection",
+    ],
+    techStack: ["React", "TypeScript", "Python", "AI/ML", "REST API", "Data Visualization"],
+    image: "gold-analytics",
+    githubUrl: "https://github.com/yourname/gold-analytics",
+    liveUrl: "",
+    featured: true,
+  },
 ];
 
 export const certificates = [
