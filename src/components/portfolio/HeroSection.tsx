@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Linkedin, Github, Instagram, Mail, Twitter, ArrowDown } from "lucide-react";
+import { Linkedin, Github, Instagram, Mail, ArrowDown } from "lucide-react";
 import { personalInfo } from "@/data/portfolioData";
 import { Button } from "@/components/ui/button";
 
@@ -35,7 +35,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
             animate={{ opacity: 1, scale: 1, rotate: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative"
+            className="relative order-2 lg:order-1"
           >
             <div className="relative w-56 h-56 md:w-72 md:h-72 lg:w-80 lg:h-80">
               {/* Animated ring */}
@@ -46,7 +46,7 @@ export const HeroSection = () => {
                 alt={personalInfo.name}
                 className="absolute inset-2 w-[calc(100%-16px)] h-[calc(100%-16px)] rounded-full object-cover"
               />
-              
+
               {/* Availability badge */}
               {personalInfo.availability && (
                 <motion.div
@@ -67,7 +67,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-center lg:text-left max-w-xl"
+            className="text-center lg:text-left max-w-xl relative z-10 order-1 lg:order-2"
           >
             <motion.p
               initial={{ opacity: 0, y: 30 }}
@@ -77,18 +77,18 @@ export const HeroSection = () => {
             >
               Hi, I'm
             </motion.p>
-            
+
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.6 }}
               className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4"
             >
-              <span className="bg-clip-text text-transparent bg-neon-gradient text-glow">
+              <span className="bg-clip-text text-transparent bg-neon-gradient inline-block">
                 {personalInfo.name}
               </span>
             </motion.h1>
-            
+
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -97,7 +97,7 @@ export const HeroSection = () => {
             >
               {personalInfo.headline}
             </motion.h2>
-            
+
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -116,10 +116,9 @@ export const HeroSection = () => {
             >
               {Object.entries(personalInfo.socialLinks).map(([key, url], index) => {
                 if (key === "whatsapp") return null;
-                const Icon = key === "linkedin" ? Linkedin : 
-                           key === "github" ? Github :
-                           key === "instagram" ? Instagram :
-                           key === "twitter" ? Twitter : Mail;
+                const Icon = key === "linkedin" ? Linkedin :
+                  key === "github" ? Github :
+                    key === "instagram" ? Instagram : Mail;
                 return (
                   <motion.a
                     key={key}

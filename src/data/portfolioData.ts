@@ -1,52 +1,50 @@
 // Portfolio Data - Edit this file to customize your portfolio
 
 export const personalInfo = {
-  name: "Your Name",
-  headline: "AI/ML Enthusiast & Computer Science Student",
-  tagline: "Building AI-driven solutions that solve real-world problems — from computer vision to NLP and beyond.",
-  email: "yourname@university.edu",
+  name: "Johana Veronica Setiawan",
+  headline: "AI/ML Enthusiast | Full-Stack Developer | Computer Science Student",
+  tagline: "Passionate about AI-driven solutions, from computer vision to NLP — while also building polished full-stack web and mobile applications.",
+  email: "johanahanaveronicasetiawan@gmail.com",
   phone: "+62 812-3456-7890",
-  location: "Jakarta, Indonesia",
+  location: "Cikarang, Indonesia",
   availability: true,
   availabilityText: "Open for Internship",
-  profileImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
+  profileImage: "/profile.png",
   cvUrl: "/cv.pdf",
   socialLinks: {
-    linkedin: "https://linkedin.com/in/yourname",
-    github: "https://github.com/yourname",
-    instagram: "https://instagram.com/yourname",
-    twitter: "https://twitter.com/yourname",
-    whatsapp: "https://wa.me/6281234567890",
+    linkedin: "https://linkedin.com/in/jhnvrc",
+    github: "https://github.com/jhnvrc",
+    instagram: "https://instagram.com/jhnvrc_",
+    whatsapp: "https://wa.me/6281387337709",
   },
 };
 
 export const aboutMe = {
-  introduction: `Computer Science student specializing in AI/ML with hands-on experience building end-to-end intelligent systems — from deep learning models to full-stack web applications. Proven track record in hackathons, published research, and organizational leadership.
+  introduction: `Informatics student at President University with a strong interest in AI/ML and hands-on experience across the full development stack. I enjoy exploring deep learning, computer vision, and NLP while also building frontend interfaces and backend systems.
 
-Actively seeking internship opportunities where I can apply my skills in machine learning, computer vision, and software engineering to deliver impactful solutions.`,
-  
+I'm always eager to learn, take on new challenges, and collaborate on projects that make a real difference — whether it's an AI model, a web app, or a mobile application.`,
+
   education: [
     {
-      degree: "Bachelor of Computer Science",
-      institution: "Universitas Indonesia",
-      year: "2022 - Present (Expected 2026)",
-      gpa: "3.75/4.00",
-      highlights: ["Concentration in Artificial Intelligence", "Dean's List 2023"],
+      degree: "Bachelor of Informatics",
+      institution: "President University — Faculty of Computer Science",
+      year: "2024 - Present (Expected 2027)",
+      gpa: "3.88/4.00",
+      highlights: ["Concentration in Artificial Intelligence"],
     },
     {
       degree: "High School Diploma (Science Track)",
-      institution: "SMA Negeri 1 Jakarta",
-      year: "2019 - 2022",
-      gpa: "92.5/100",
-      highlights: ["Science Olympiad Finalist", "Top 10% of graduating class"],
+      institution: "SMA PANGUDI LUHUR BERNARDUS DELTAMAS",
+      year: "2019 - 2024",
+      highlights: ["Top 10% of graduating class"],
     },
   ],
-  
+
   goals: [
-    "Secure an AI/ML internship at a leading tech company",
-    "Complete my undergraduate thesis on NLP applications",
-    "Contribute to meaningful open-source AI projects",
-    "Build a startup that leverages AI for social impact",
+    "Gain real-world experience through an AI/ML or software engineering internship",
+    "Deepen my understanding of NLP and computer vision through research",
+    "Grow as a full-stack developer by building end-to-end projects",
+    "Contribute to open-source projects and the developer community",
   ],
 };
 
@@ -54,27 +52,31 @@ export const skills = {
   categories: [
     {
       name: "Programming Languages",
-      skills: ["Python", "JavaScript", "Java", "SQL"],
+      skills: ["Python", "JavaScript", "TypeScript", "Java", "C#", "SQL", "Kotlin"],
     },
     {
-      name: "Artificial Intelligence",
-      skills: ["TensorFlow", "PyTorch", "Keras", "Scikit-learn"],
+      name: "AI & Machine Learning",
+      skills: ["Deep Learning", "Computer Vision", "NLP", "Image Processing", "Robotics Intelligence"],
     },
     {
-      name: "Machine Learning",
-      skills: ["Deep Learning", "NLP Basics", "Computer Vision", "Neural Networks"],
+      name: "AI Frameworks & Libraries",
+      skills: ["TensorFlow", "PyTorch", "Keras", "Scikit-learn", "OpenCV", "YOLOv8/v11"],
     },
     {
-      name: "Data Science",
+      name: "Frontend Development",
+      skills: ["React", "Next.js", "Tailwind CSS", "HTML/CSS", "Responsive Design"],
+    },
+    {
+      name: "Backend Development",
+      skills: ["Node.js", "Flask", "FastAPI", "REST API", "Firebase"],
+    },
+    {
+      name: "Tools",
       skills: ["Pandas", "NumPy", "Matplotlib", "Jupyter Notebook"],
     },
     {
-      name: "Web Development",
-      skills: ["React", "Node.js", "Flask", "Tailwind CSS"],
-    },
-    {
       name: "Tools & Platforms",
-      skills: ["Git", "GitHub", "Google Colab", "VS Code"],
+      skills: ["Git", "GitHub", "Google Colab", "VS Code", "Blender"],
     },
   ],
 };
@@ -92,7 +94,7 @@ export const projects = [
     ],
     techStack: ["Python", "FastAPI", "React", "LLM", "RAG", "NLP"],
     image: "sentra",
-    githubUrl: "https://github.com/yourname/sentra",
+    githubUrl: "https://github.com/jhnvrc/sentra",
     liveUrl: "",
     featured: true,
   },
@@ -108,7 +110,7 @@ export const projects = [
     ],
     techStack: ["React", "TypeScript", "Python", "Machine Learning", "FastAPI", "Tailwind CSS"],
     image: "heartguard",
-    githubUrl: "https://github.com/yourname/heartguard-pro",
+    githubUrl: "https://github.com/jhnvrc/heartguard-pro",
     liveUrl: "",
     featured: true,
   },
@@ -124,7 +126,7 @@ export const projects = [
     ],
     techStack: ["Python", "YOLOv8", "YOLOv11", "Deep Learning", "React", "Computer Vision"],
     image: "bisindo",
-    githubUrl: "https://github.com/yourname/bisindo-recognition",
+    githubUrl: "https://github.com/jhnvrc/bisindo-recognition",
     liveUrl: "",
     featured: true,
   },
@@ -140,7 +142,7 @@ export const projects = [
     ],
     techStack: ["React", "TypeScript", "Python", "FastAPI", "Deep Learning", "OpenCV"],
     image: "study-buddy",
-    githubUrl: "https://github.com/yourname/study-buddy",
+    githubUrl: "https://github.com/jhnvrc/study-buddy",
     liveUrl: "",
     featured: true,
   },
@@ -156,7 +158,7 @@ export const projects = [
     ],
     techStack: ["React", "TypeScript", "Python", "AI/ML", "REST API", "Data Visualization"],
     image: "gold-analytics",
-    githubUrl: "https://github.com/yourname/gold-analytics",
+    githubUrl: "https://github.com/jhnvrc/gold-analytics",
     liveUrl: "",
     featured: true,
   },
@@ -172,7 +174,7 @@ export const projects = [
     ],
     techStack: ["React", "Python", "TensorFlow", "Computer Vision", "REST API"],
     image: "image-processing",
-    githubUrl: "https://github.com/yourname/ai-image-processing",
+    githubUrl: "https://github.com/jhnvrc/ai-image-processing",
     liveUrl: "",
     featured: false,
   },
@@ -188,7 +190,7 @@ export const projects = [
     ],
     techStack: ["React", "Node.js", "Tailwind CSS", "REST API"],
     image: "pallpaws",
-    githubUrl: "https://github.com/yourname/pallpaws",
+    githubUrl: "https://github.com/jhnvrc/pallpaws",
     liveUrl: "",
     featured: false,
   },
@@ -204,7 +206,7 @@ export const projects = [
     ],
     techStack: ["Kotlin", "Android", "Firebase", "XML", "MVVM Architecture"],
     image: "coffee-app",
-    githubUrl: "https://github.com/yourname/coffee-shop-app",
+    githubUrl: "https://github.com/jhnvrc/coffee-shop-app",
     liveUrl: "",
     featured: false,
   },
@@ -220,7 +222,7 @@ export const projects = [
     ],
     techStack: ["Unity", "C#", "3D Modeling", "Blender", "Animation"],
     image: "hypothermia",
-    githubUrl: "https://github.com/yourname/hypothermia-game",
+    githubUrl: "https://github.com/jhnvrc/hypothermia-game",
     liveUrl: "",
     featured: false,
   },
