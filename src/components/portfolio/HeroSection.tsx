@@ -170,7 +170,7 @@ export const HeroSection = () => {
                 className="border-primary/50 hover:bg-primary/10 w-full sm:w-auto"
                 asChild
               >
-                <a href={personalInfo.cvUrl} download>
+                <a href="/cv" target="_blank" rel="noopener noreferrer">
                   Download CV
                 </a>
               </Button>
