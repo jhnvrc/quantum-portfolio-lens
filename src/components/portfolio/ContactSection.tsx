@@ -51,15 +51,35 @@ export const ContactSection = () => {
     const sanitizedData = validation.data!;
 
     try {
-      // In a real app, this would send to a backend API
-      // For now, we simulate a successful submission
-      await new Promise((resolve) => setTimeout(resolve, 500));
-
-      toast({
-        title: "Message Sent!",
-        description: "Thank you for reaching out. I'll get back to you soon.",
+      // Send message to email via Web3Forms
+      // TODO: Replace "YOUR_ACCESS_KEY_HERE" with your actual Web3Forms Access Key
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "YOUR_ACCESS_KEY_HERE",
+          name: sanitizedData.name,
+          email: sanitizedData.email,
+          message: sanitizedData.message,
+          subject: `New Portfolio Message from ${sanitizedData.name}`,
+          from_name: "Portfolio Contact Form"
+        }),
       });
-      setFormData({ name: "", email: "", message: "" });
+
+      const result = await response.json();
+
+      if (response.status === 200 && result.success) {
+        toast({
+          title: "Message Sent!",
+          description: "Thank you for reaching out. I'll get back to you soon.",
+        });
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        throw new Error(result.message || "Failed to send message");
+      }
     } catch (error) {
       toast({
         title: "Error",
