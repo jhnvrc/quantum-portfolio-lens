@@ -103,7 +103,13 @@ const CV = () => {
                   <p className="text-gray-600 mt-0.5" style={{ fontSize: '10px' }}>{edu.institution}</p>
                   <p className="font-medium mt-0.5" style={{ fontSize: '10px', color: '#3b82f6' }}>{edu.year}</p>
                   {edu.gpa && (
-                    <p className="text-gray-600 mt-0.5" style={{ fontSize: '10px' }}>GPA: {edu.gpa}</p>
+                    edu.institution.includes("President") ? (
+                      <div className="mt-1.5 inline-block px-1.5 py-0.5 print:px-2" style={{ backgroundColor: '#eff6ff', border: '1px solid #3b82f6', borderRadius: '4px' }}>
+                        <p className="font-bold whitespace-nowrap" style={{ fontSize: '10.5px', color: '#2563eb' }}>⭐ GPA: {edu.gpa} ⭐</p>
+                      </div>
+                    ) : (
+                      <p className="text-gray-600 mt-0.5" style={{ fontSize: '10px' }}>GPA: {edu.gpa}</p>
+                    )
                   )}
                   {edu.highlights.length > 0 && (
                     <ul className="text-gray-600 mt-0.5 list-none" style={{ fontSize: '9.5px' }}>

@@ -95,11 +95,26 @@ export const AboutSection = () => {
                         <div className="absolute left-0 top-0 w-3 h-3 -translate-x-[7px] rounded-full bg-primary glow-purple" />
                         <h4 className="font-semibold text-foreground">{edu.degree}</h4>
                         <p className="text-primary font-medium">{edu.institution}</p>
-                        <div className="flex items-center gap-4 text-sm text-muted-foreground mt-1">
-                          <span>{edu.year}</span>
-                          <span className="px-2 py-0.5 rounded-full bg-accent/50 text-accent-foreground text-xs font-medium">
-                            GPA: {edu.gpa}
-                          </span>
+                        <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mt-2">
+                          <span className="font-medium bg-secondary/50 px-2 py-1 rounded-md">{edu.year}</span>
+                          {edu.gpa && (
+                            edu.institution.includes("President") ? (
+                              <motion.span 
+                                animate={{ 
+                                  scale: [1, 1.05, 1],
+                                  boxShadow: ["0px 0px 0px rgba(59,130,246,0)", "0px 0px 15px rgba(59,130,246,0.6)", "0px 0px 0px rgba(59,130,246,0)"]
+                                }}
+                                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                                className="px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-sm font-bold border border-blue-500/50 flex items-center gap-1.5 shadow-lg shadow-blue-500/20"
+                              >
+                                <span>⭐</span> GPA: {edu.gpa} <span>⭐</span>
+                              </motion.span>
+                            ) : (
+                              <span className="px-2 py-1 rounded-full bg-accent/50 text-accent-foreground text-xs font-medium">
+                                GPA: {edu.gpa}
+                              </span>
+                            )
+                          )}
                         </div>
                         <ul className="mt-2 space-y-1">
                           {edu.highlights.map((highlight, i) => (

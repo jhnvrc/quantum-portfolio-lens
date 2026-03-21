@@ -261,6 +261,14 @@ export const certificates = [
     image: "/certificates/dicoding-web-programming.webp",
     credentialUrl: "https://dicoding.com/certificates/GRX5W2K7KZ0M",
   },
+  {
+    id: "5",
+    title: "Belajar Dasar AI",
+    issuer: "Dicoding Indonesia",
+    year: "2026",
+    image: "/certificates/dicoding-basic-ai.webp",
+    credentialUrl: "https://dicoding.com/certificates/QLZ99R1LMZ5D",
+  },
 ];
 
 export const experience = {
