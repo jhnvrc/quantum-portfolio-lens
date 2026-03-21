@@ -35,7 +35,7 @@ I'm always eager to learn, take on new challenges, and collaborate on projects t
     {
       degree: "High School Diploma (Science Track)",
       institution: "SMA PANGUDI LUHUR BERNARDUS DELTAMAS",
-      year: "2019 - 2024",
+      year: "2021 - 2024",
       highlights: ["Top 10% of graduating class"],
     },
   ],

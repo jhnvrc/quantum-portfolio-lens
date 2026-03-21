@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { GraduationCap, Target, Download, MapPin } from "lucide-react";
+import { GraduationCap, Target, MapPin } from "lucide-react";
 import { aboutMe, personalInfo } from "@/data/portfolioData";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -54,15 +54,7 @@ export const AboutSection = () => {
                   {personalInfo.location}
                 </div>
 
-                <Button
-                  className="mt-6 bg-neon-gradient hover:opacity-90 text-white"
-                  asChild
-                >
-                  <a href={personalInfo.cvUrl} download>
-                    <Download className="w-4 h-4 mr-2" />
-                    Download My CV
-                  </a>
-                </Button>
+
               </CardContent>
             </Card>
           </motion.div>
