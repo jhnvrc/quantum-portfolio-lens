@@ -1,13 +1,12 @@
 import { useEffect } from "react";
-import { personalInfo, aboutMe, skills, projects, experience, achievements, certificates } from "@/data/portfolioData";
-import { Mail, Phone, MapPin, Linkedin, Github, Globe } from "lucide-react";
+import { personalInfo, aboutMe, skills, projects, experience, certificates } from "@/data/portfolioData";
+import { Mail, Phone, MapPin, Linkedin, Github } from "lucide-react";
 
 const CV = () => {
   useEffect(() => {
-    // Auto-trigger print dialog after page loads
     const timer = setTimeout(() => {
       window.print();
-    }, 600);
+    }, 800);
     return () => clearTimeout(timer);
   }, []);
 
@@ -33,180 +32,205 @@ const CV = () => {
         </button>
       </div>
 
-      <div className="max-w-[210mm] mx-auto px-8 py-10 print:px-10 print:py-8">
-        {/* Header */}
-        <header className="mb-6 border-b-2 border-gray-800 pb-4">
-          <h1 className="text-3xl font-bold tracking-tight text-gray-900">
-            {personalInfo.name}
-          </h1>
-          <p className="text-base font-medium text-gray-600 mt-1">
-            {personalInfo.headline}
-          </p>
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-3 text-xs text-gray-600">
-            <span className="flex items-center gap-1">
-              <Mail className="w-3 h-3" />
-              {personalInfo.email}
-            </span>
-            <span className="flex items-center gap-1">
-              <Phone className="w-3 h-3" />
-              {personalInfo.phone}
-            </span>
-            <span className="flex items-center gap-1">
-              <MapPin className="w-3 h-3" />
-              {personalInfo.location}
-            </span>
-            <span className="flex items-center gap-1">
-              <Linkedin className="w-3 h-3" />
-              {personalInfo.socialLinks.linkedin.replace("https://", "")}
-            </span>
-            <span className="flex items-center gap-1">
-              <Github className="w-3 h-3" />
-              {personalInfo.socialLinks.github.replace("https://", "")}
-            </span>
+      <div className="cv-container max-w-[210mm] mx-auto print:mx-0">
+        {/* ===== HEADER WITH PHOTO ===== */}
+        <header className="cv-header flex items-center gap-6 px-8 py-6 print:px-10 print:py-5" style={{ backgroundColor: '#1e293b' }}>
+          {/* Profile Photo */}
+          <div className="cv-photo flex-shrink-0">
+            <img
+              src={personalInfo.profileImage}
+              alt={personalInfo.name}
+              className="w-24 h-24 rounded-full object-cover border-3"
+              style={{ borderColor: '#60a5fa', borderWidth: '3px', borderStyle: 'solid' }}
+            />
+          </div>
+
+          {/* Name & Contact */}
+          <div className="flex-1">
+            <h1 className="text-2xl font-bold tracking-tight text-white" style={{ fontSize: '26px', lineHeight: '1.2' }}>
+              {personalInfo.name}
+            </h1>
+            <p className="text-sm font-medium mt-1" style={{ color: '#93c5fd' }}>
+              {personalInfo.headline}
+            </p>
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-2.5">
+              <span className="flex items-center gap-1 text-xs text-gray-300">
+                <Mail className="w-3 h-3" style={{ color: '#93c5fd' }} />
+                {personalInfo.email}
+              </span>
+              <span className="flex items-center gap-1 text-xs text-gray-300">
+                <Phone className="w-3 h-3" style={{ color: '#93c5fd' }} />
+                {personalInfo.phone}
+              </span>
+              <span className="flex items-center gap-1 text-xs text-gray-300">
+                <MapPin className="w-3 h-3" style={{ color: '#93c5fd' }} />
+                {personalInfo.location}
+              </span>
+              <span className="flex items-center gap-1 text-xs text-gray-300">
+                <Linkedin className="w-3 h-3" style={{ color: '#93c5fd' }} />
+                {personalInfo.socialLinks.linkedin.replace("https://", "")}
+              </span>
+              <span className="flex items-center gap-1 text-xs text-gray-300">
+                <Github className="w-3 h-3" style={{ color: '#93c5fd' }} />
+                {personalInfo.socialLinks.github.replace("https://", "")}
+              </span>
+            </div>
           </div>
         </header>
 
-        {/* Summary */}
-        <section className="mb-5">
-          <h2 className="text-sm font-bold uppercase tracking-wider text-gray-800 border-b border-gray-300 pb-1 mb-2">
-            Summary
-          </h2>
-          <p className="text-xs leading-relaxed text-gray-700">
-            {aboutMe.introduction.split("\n\n")[0]}
-          </p>
-        </section>
-
-        {/* Education */}
-        <section className="mb-5">
-          <h2 className="text-sm font-bold uppercase tracking-wider text-gray-800 border-b border-gray-300 pb-1 mb-2">
-            Education
-          </h2>
-          {aboutMe.education.map((edu, i) => (
-            <div key={i} className="mb-2">
-              <div className="flex justify-between items-baseline">
-                <h3 className="text-xs font-bold text-gray-900">{edu.degree}</h3>
-                <span className="text-xs text-gray-500">{edu.year}</span>
-              </div>
-              <p className="text-xs text-gray-600">
-                {edu.institution} — GPA: {edu.gpa}
+        {/* ===== BODY ===== */}
+        <div className="cv-body flex print:flex">
+          {/* LEFT SIDEBAR */}
+          <aside className="cv-sidebar w-[32%] px-5 py-5 print:px-5 print:py-4" style={{ backgroundColor: '#f1f5f9' }}>
+            {/* Summary */}
+            <section className="mb-5">
+              <h2 className="cv-section-title text-xs font-bold uppercase tracking-widest pb-1.5 mb-2" style={{ color: '#1e293b', borderBottom: '2px solid #3b82f6' }}>
+                Profile
+              </h2>
+              <p className="text-xs leading-relaxed text-gray-700" style={{ fontSize: '10px', lineHeight: '1.6' }}>
+                {aboutMe.introduction.split("\n\n")[0]}
               </p>
-              {edu.highlights.length > 0 && (
-                <ul className="list-disc list-inside text-xs text-gray-600 mt-0.5">
-                  {edu.highlights.map((h, j) => (
-                    <li key={j}>{h}</li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          ))}
-        </section>
+            </section>
 
-        {/* Skills */}
-        <section className="mb-5">
-          <h2 className="text-sm font-bold uppercase tracking-wider text-gray-800 border-b border-gray-300 pb-1 mb-2">
-            Technical Skills
-          </h2>
-          <div className="space-y-1">
-            {skills.categories.map((cat, i) => (
-              <div key={i} className="text-xs">
-                <span className="font-semibold text-gray-800">{cat.name}: </span>
-                <span className="text-gray-600">{cat.skills.join(", ")}</span>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Projects */}
-        <section className="mb-5">
-          <h2 className="text-sm font-bold uppercase tracking-wider text-gray-800 border-b border-gray-300 pb-1 mb-2">
-            Projects
-          </h2>
-          {featuredProjects.map((project) => (
-            <div key={project.id} className="mb-3">
-              <div className="flex justify-between items-baseline">
-                <h3 className="text-xs font-bold text-gray-900">{project.title}</h3>
-                <span className="text-xs text-gray-500">
-                  {project.techStack.slice(0, 4).join(" · ")}
-                </span>
-              </div>
-              <p className="text-xs text-gray-600 mt-0.5">{project.description.slice(0, 200)}{project.description.length > 200 ? "..." : ""}</p>
-              <ul className="list-disc list-inside text-xs text-gray-600 mt-0.5">
-                {project.features.slice(0, 3).map((f, i) => (
-                  <li key={i}>{f}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </section>
-
-        {/* Leadership & Experience */}
-        <section className="mb-5">
-          <h2 className="text-sm font-bold uppercase tracking-wider text-gray-800 border-b border-gray-300 pb-1 mb-2">
-            Leadership & Organizational Experience
-          </h2>
-          {leadershipExp.map((exp) => (
-            <div key={exp.id} className="mb-2">
-              <div className="flex justify-between items-baseline">
-                <h3 className="text-xs font-bold text-gray-900">{exp.role}</h3>
-                <span className="text-xs text-gray-500">{exp.period}</span>
-              </div>
-              <p className="text-xs text-gray-600">{exp.organization}</p>
-              <ul className="list-disc list-inside text-xs text-gray-600 mt-0.5">
-                {exp.achievements.map((a, i) => (
-                  <li key={i}>{a}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-
-          {/* Other involvement - compact */}
-          {otherExp.length > 0 && (
-            <div className="mt-2">
-              <h3 className="text-xs font-semibold text-gray-700 mb-1">Other Involvement</h3>
-              {otherExp.map((exp) => (
-                <div key={exp.id} className="mb-1.5">
-                  <div className="flex justify-between items-baseline">
-                    <span className="text-xs font-medium text-gray-800">{exp.role}</span>
-                    <span className="text-xs text-gray-500">{exp.period}</span>
-                  </div>
-                  <p className="text-xs text-gray-500">{exp.organization}</p>
+            {/* Education */}
+            <section className="mb-5">
+              <h2 className="cv-section-title text-xs font-bold uppercase tracking-widest pb-1.5 mb-2" style={{ color: '#1e293b', borderBottom: '2px solid #3b82f6' }}>
+                Education
+              </h2>
+              {aboutMe.education.map((edu, i) => (
+                <div key={i} className="mb-3">
+                  <h3 className="font-bold text-gray-900" style={{ fontSize: '10.5px' }}>{edu.degree}</h3>
+                  <p className="text-gray-600 mt-0.5" style={{ fontSize: '10px' }}>{edu.institution}</p>
+                  <p className="font-medium mt-0.5" style={{ fontSize: '10px', color: '#3b82f6' }}>{edu.year}</p>
+                  {edu.gpa && (
+                    <p className="text-gray-600 mt-0.5" style={{ fontSize: '10px' }}>GPA: {edu.gpa}</p>
+                  )}
+                  {edu.highlights.length > 0 && (
+                    <ul className="text-gray-600 mt-0.5 list-none" style={{ fontSize: '9.5px' }}>
+                      {edu.highlights.map((h, j) => (
+                        <li key={j} className="flex items-start gap-1">
+                          <span style={{ color: '#3b82f6' }}>▸</span> {h}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
               ))}
-            </div>
-          )}
-        </section>
+            </section>
 
-        {/* Achievements */}
-        <section className="mb-5">
-          <h2 className="text-sm font-bold uppercase tracking-wider text-gray-800 border-b border-gray-300 pb-1 mb-2">
-            Achievements & Awards
-          </h2>
-          {achievements.map((a) => (
-            <div key={a.id} className="flex justify-between items-baseline mb-1">
-              <div>
-                <span className="text-xs font-semibold text-gray-800">{a.title}</span>
-                <span className="text-xs text-gray-500"> — {a.description}</span>
+            {/* Technical Skills */}
+            <section className="mb-5">
+              <h2 className="cv-section-title text-xs font-bold uppercase tracking-widest pb-1.5 mb-2" style={{ color: '#1e293b', borderBottom: '2px solid #3b82f6' }}>
+                Skills
+              </h2>
+              <div className="space-y-2">
+                {skills.categories.map((cat, i) => (
+                  <div key={i}>
+                    <h3 className="font-semibold text-gray-800" style={{ fontSize: '10px' }}>{cat.name}</h3>
+                    <div className="flex flex-wrap gap-1 mt-1">
+                      {cat.skills.map((skill, j) => (
+                        <span key={j} className="px-1.5 py-0.5 rounded text-gray-700" style={{ fontSize: '8.5px', backgroundColor: '#e2e8f0' }}>
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                ))}
               </div>
-              <span className="text-xs text-gray-500 flex-shrink-0 ml-2">{a.year}</span>
-            </div>
-          ))}
-        </section>
+            </section>
 
-        {/* Certificates */}
-        <section>
-          <h2 className="text-sm font-bold uppercase tracking-wider text-gray-800 border-b border-gray-300 pb-1 mb-2">
-            Certifications
-          </h2>
-          {certificates.map((cert) => (
-            <div key={cert.id} className="flex justify-between items-baseline mb-1">
-              <div>
-                <span className="text-xs font-semibold text-gray-800">{cert.title}</span>
-                <span className="text-xs text-gray-500"> — {cert.issuer}</span>
-              </div>
-              <span className="text-xs text-gray-500">{cert.year}</span>
-            </div>
-          ))}
-        </section>
+            {/* Certifications */}
+            <section>
+              <h2 className="cv-section-title text-xs font-bold uppercase tracking-widest pb-1.5 mb-2" style={{ color: '#1e293b', borderBottom: '2px solid #3b82f6' }}>
+                Certifications
+              </h2>
+              {certificates.map((cert) => (
+                <div key={cert.id} className="mb-2">
+                  <h3 className="font-semibold text-gray-800" style={{ fontSize: '10px' }}>{cert.title}</h3>
+                  <p className="text-gray-500" style={{ fontSize: '9.5px' }}>{cert.issuer} • {cert.year}</p>
+                </div>
+              ))}
+            </section>
+          </aside>
+
+          {/* RIGHT MAIN CONTENT */}
+          <main className="cv-main flex-1 px-6 py-5 print:px-6 print:py-4">
+            {/* Projects */}
+            <section className="mb-5">
+              <h2 className="cv-section-title text-xs font-bold uppercase tracking-widest pb-1.5 mb-3" style={{ color: '#1e293b', borderBottom: '2px solid #3b82f6' }}>
+                Projects
+              </h2>
+              {featuredProjects.map((project) => (
+                <div key={project.id} className="mb-3.5">
+                  <div className="flex justify-between items-baseline">
+                    <h3 className="font-bold text-gray-900" style={{ fontSize: '11px' }}>{project.title}</h3>
+                    <span className="text-gray-400 flex-shrink-0 ml-2" style={{ fontSize: '9px' }}>
+                      {project.techStack.slice(0, 4).join(" · ")}
+                    </span>
+                  </div>
+                  <p className="text-gray-600 mt-0.5" style={{ fontSize: '10px', lineHeight: '1.5' }}>
+                    {project.description.slice(0, 220)}{project.description.length > 220 ? "..." : ""}
+                  </p>
+                  <ul className="text-gray-600 mt-1 list-none space-y-0.5" style={{ fontSize: '9.5px' }}>
+                    {project.features.slice(0, 3).map((f, i) => (
+                      <li key={i} className="flex items-start gap-1">
+                        <span style={{ color: '#3b82f6' }}>▸</span> {f}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </section>
+
+            {/* Leadership & Experience */}
+            <section className="mb-5">
+              <h2 className="cv-section-title text-xs font-bold uppercase tracking-widest pb-1.5 mb-3" style={{ color: '#1e293b', borderBottom: '2px solid #3b82f6' }}>
+                Leadership & Experience
+              </h2>
+              {leadershipExp.map((exp) => (
+                <div key={exp.id} className="mb-3">
+                  <div className="flex justify-between items-baseline">
+                    <h3 className="font-bold text-gray-900" style={{ fontSize: '11px' }}>{exp.role}</h3>
+                    <span className="text-gray-400 flex-shrink-0 ml-2" style={{ fontSize: '9.5px' }}>{exp.period}</span>
+                  </div>
+                  <p className="font-medium" style={{ fontSize: '10px', color: '#3b82f6' }}>{exp.organization}</p>
+                  <ul className="text-gray-600 mt-0.5 list-none space-y-0.5" style={{ fontSize: '9.5px' }}>
+                    {exp.achievements.map((a, i) => (
+                      <li key={i} className="flex items-start gap-1">
+                        <span style={{ color: '#3b82f6' }}>▸</span> {a}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+
+              {/* Other involvement */}
+              {otherExp.length > 0 && (
+                <div className="mt-3">
+                  <h3 className="font-semibold text-gray-700 mb-1.5" style={{ fontSize: '10.5px' }}>Other Involvement</h3>
+                  {otherExp.map((exp) => (
+                    <div key={exp.id} className="mb-1.5">
+                      <div className="flex justify-between items-baseline">
+                        <span className="font-medium text-gray-800" style={{ fontSize: '10px' }}>{exp.role}</span>
+                        <span className="text-gray-400 flex-shrink-0 ml-2" style={{ fontSize: '9px' }}>{exp.period}</span>
+                      </div>
+                      <p className="text-gray-500" style={{ fontSize: '9.5px' }}>{exp.organization}</p>
+                      {exp.achievements && exp.achievements.length > 0 && (
+                        <ul className="text-gray-600 mt-0.5 list-none" style={{ fontSize: '9px' }}>
+                          {exp.achievements.slice(0, 3).map((a, i) => (
+                            <li key={i} className="flex items-start gap-1">
+                              <span style={{ color: '#94a3b8' }}>▸</span> {a}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </section>
+          </main>
+        </div>
       </div>
 
       {/* Print styles */}
@@ -214,14 +238,35 @@ const CV = () => {
         @media print {
           @page {
             size: A4;
-            margin: 12mm 10mm;
+            margin: 0;
           }
-          body {
+          html, body {
+            margin: 0;
+            padding: 0;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+          }
+          .cv-page {
+            font-family: 'Segoe UI', 'Inter', system-ui, sans-serif;
+          }
+          .cv-container {
+            max-width: 100%;
+          }
+          .cv-header {
+            background-color: #1e293b !important;
             -webkit-print-color-adjust: exact;
             print-color-adjust: exact;
           }
-          .cv-page {
-            font-family: 'Times New Roman', Georgia, serif;
+          .cv-sidebar {
+            background-color: #f1f5f9 !important;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+          }
+          .cv-body {
+            display: flex !important;
+          }
+          .cv-photo img {
+            border: 3px solid #60a5fa !important;
           }
           .print\\:hidden {
             display: none !important;
@@ -231,6 +276,13 @@ const CV = () => {
         @media screen {
           .cv-page {
             font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            background-color: #e5e7eb;
+            padding: 24px 0;
+          }
+          .cv-container {
+            box-shadow: 0 4px 30px rgba(0,0,0,0.15);
+            border-radius: 4px;
+            overflow: hidden;
           }
         }
       `}</style>

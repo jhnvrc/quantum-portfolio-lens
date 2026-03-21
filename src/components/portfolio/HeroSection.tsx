@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 export const HeroSection = () => {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, 150]);
-  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
   const handleScrollToAbout = () => {
     const element = document.querySelector("#about");
@@ -28,7 +27,7 @@ export const HeroSection = () => {
       <motion.div style={{ y }} className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-neon-blue/20 rounded-full blur-3xl animate-float" />
       <motion.div style={{ y }} className="absolute top-1/2 right-1/3 w-48 h-48 bg-neon-cyan/20 rounded-full blur-3xl animate-float" />
 
-      <motion.div style={{ opacity }} className="container mx-auto px-4 relative z-10">
+      <motion.div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-20">
           {/* Profile Image */}
           <motion.div

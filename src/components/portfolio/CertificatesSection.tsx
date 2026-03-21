@@ -30,9 +30,11 @@ export const CertificatesSection = () => {
                   <p className="text-xs text-muted-foreground mb-1">{cert.issuer}</p>
                   <div className="flex justify-between items-center">
                     <span className="text-xs text-primary">{cert.year}</span>
-                    <a href={cert.credentialUrl} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-                      <ExternalLink className="w-4 h-4" />
-                    </a>
+                    {cert.credentialUrl && (
+                      <a href={cert.credentialUrl} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
+                    )}
                   </div>
                 </CardContent>
               </Card>
