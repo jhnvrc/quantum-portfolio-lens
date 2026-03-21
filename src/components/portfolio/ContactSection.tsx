@@ -60,7 +60,7 @@ export const ContactSection = () => {
           Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: "YOUR_ACCESS_KEY_HERE",
+          access_key: "7f914b34-3d78-43b8-9c0d-6a4609412ee1",
           name: sanitizedData.name,
           email: sanitizedData.email,
           message: sanitizedData.message,
