@@ -15,7 +15,7 @@ const CV = () => {
   const otherExp = experience.organizational.filter((e) => e.category !== "leadership");
 
   return (
-    <div className="cv-page bg-white text-gray-900 min-h-screen">
+    <div className="cv-page text-gray-900 min-h-screen bg-gray-200">
       {/* Print button (hidden in print) */}
       <div className="print:hidden fixed top-4 right-4 flex gap-2 z-50">
         <button
@@ -32,9 +32,9 @@ const CV = () => {
         </button>
       </div>
 
-      <div className="cv-container max-w-[210mm] mx-auto print:mx-0">
+      <div className="cv-container mx-auto print:mx-0 bg-white flex flex-col">
         {/* ===== HEADER ===== */}
-        <header className="cv-header flex items-center gap-5 px-7 py-3.5 print:px-8 print:py-3" style={{ backgroundColor: '#1e293b' }}>
+        <header className="cv-header flex items-center gap-5 px-7 py-3.5 print:px-8 print:py-3 shrink-0" style={{ backgroundColor: '#1e293b' }}>
           <div className="cv-photo flex-shrink-0">
             <img
               src={personalInfo.profileImage}
@@ -248,22 +248,26 @@ const CV = () => {
       <style>{`
         @media print {
           @page {
-            size: A4;
+            size: A4 portrait;
             margin: 0;
           }
           html, body {
             margin: 0;
             padding: 0;
+            width: 210mm;
+            height: 297mm;
             -webkit-print-color-adjust: exact !important;
             print-color-adjust: exact !important;
           }
           .cv-page {
             font-family: 'Segoe UI', 'Inter', system-ui, sans-serif;
+            background-color: white !important;
             height: 297mm;
+            width: 210mm;
             overflow: hidden;
           }
           .cv-container {
-            max-width: 100%;
+            width: 210mm;
             height: 297mm;
             overflow: hidden;
           }
@@ -293,13 +297,17 @@ const CV = () => {
         @media screen {
           .cv-page {
             font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
-            background-color: #e5e7eb;
-            padding: 24px 0;
+            background-color: #d1d5db; /* gray-300 */
+            padding: 32px 0;
+            display: flex;
+            justify-content: center;
           }
           .cv-container {
-            box-shadow: 0 4px 30px rgba(0,0,0,0.15);
-            border-radius: 4px;
+            width: 210mm;
+            height: 297mm;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
             overflow: hidden;
+            background-color: white;
           }
         }
       `}</style>
