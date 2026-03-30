@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { personalInfo, aboutMe, skills, projects, experience, certificates, languages } from "@/data/portfolioData";
-import { Mail, Phone, MapPin, Linkedin, Github } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Github, Globe } from "lucide-react";
 
 const CV = () => {
   useEffect(() => {
@@ -71,6 +71,12 @@ const CV = () => {
                 <Github className="w-2.5 h-2.5" style={{ color: '#93c5fd' }} />
                 {personalInfo.socialLinks.github.replace("https://", "")}
               </span>
+              {personalInfo.socialLinks.portfolio && (
+                <span className="flex items-center gap-1 text-gray-300" style={{ fontSize: '8px' }}>
+                  <Globe className="w-2.5 h-2.5" style={{ color: '#93c5fd' }} />
+                  {personalInfo.socialLinks.portfolio.replace("https://", "")}
+                </span>
+              )}
             </div>
           </div>
         </header>

@@ -14,6 +14,7 @@ export const personalInfo = {
   socialLinks: {
     linkedin: "https://linkedin.com/in/johanavsetiawan",
     github: "https://github.com/Jjvers",
+    portfolio: "https://quantum-portfolio-lens.vercel.app",
     instagram: "https://instagram.com/jhnvrc_",
     whatsapp: "https://wa.me/6281387337709",
   },
