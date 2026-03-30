@@ -2,7 +2,7 @@
 
 export const personalInfo = {
   name: "Johana Veronica Setiawan",
-  headline: "AI/ML Enthusiast | Full-Stack Developer | Computer Science Student",
+  headline: "AI Enthusiast | Full-Stack Developer | Computer Science Student",
   tagline: "Passionate about AI-driven solutions, from computer vision to NLP — while also building polished full-stack web and mobile applications.",
   email: "johanaveronicasetiawan@gmail.com",
   phone: "+62 813-8733-7709",

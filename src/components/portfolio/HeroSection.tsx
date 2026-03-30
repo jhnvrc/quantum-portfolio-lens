@@ -136,17 +136,17 @@ export const HeroSection = () => {
                   </motion.a>
                 );
               })}
-              <motion.a
-                href={`mailto:${personalInfo.email}`}
+              <motion.button
+                onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 1.3, duration: 0.4 }}
-                className="p-3 rounded-full glass hover:glow-cyan transition-all duration-300 hover:scale-110"
+                className="p-3 rounded-full glass hover:glow-cyan transition-all duration-300 hover:scale-110 cursor-pointer"
                 whileHover={{ y: -5 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <Mail className="w-5 h-5" />
-              </motion.a>
+                <Mail className="w-5 h-5 cursor-pointer text-current" />
+              </motion.button>
             </motion.div>
 
             {/* CTA Buttons */}
@@ -154,7 +154,7 @@ export const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1, duration: 0.6 }}
-              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
+              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 relative z-20"
             >
               <Button
                 size="lg"
