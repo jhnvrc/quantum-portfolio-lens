@@ -1,4 +1,4 @@
-// Portfolio Data - Edit this file to customize your portfolio
+// Portfolio Data - Professional ATS CV Format
 
 export const personalInfo = {
   name: "Johana Veronica Setiawan",
@@ -9,7 +9,7 @@ export const personalInfo = {
   location: "Cikarang, Indonesia",
   availability: true,
   availabilityText: "Open for Internship",
-  profileImage: "/profile.png",
+  profileImage: "/profile.jpg",
   cvUrl: "/cv.pdf",
   socialLinks: {
     linkedin: "https://linkedin.com/in/johanavsetiawan",
@@ -71,12 +71,12 @@ export const skills = {
       skills: ["Node.js", "Flask", "FastAPI", "REST API", "Firebase"],
     },
     {
-      name: "Tools",
-      skills: ["Pandas", "NumPy", "Matplotlib", "Jupyter Notebook"],
+      name: "Data Libraries",
+      skills: ["Pandas", "NumPy", "Matplotlib"],
     },
     {
       name: "Tools & Platforms",
-      skills: ["Git", "GitHub", "Google Colab", "VS Code", "Blender"],
+      skills: ["Git", "GitHub", "Jupyter Notebook", "Google Colab", "VS Code", "Blender"],
     },
   ],
 };
@@ -85,12 +85,11 @@ export const projects = [
   {
     id: "1",
     title: "Sentra – Media Bias Analysis",
-    description: "An AI-powered platform for media bias analysis and hallucination detection. Uses RAG + LLM to analyze news articles, detect framing keywords, and provide factual summaries with source alignment scoring.",
+    description: "An AI-powered platform for detecting and analyzing media bias and hallucinations in news articles. Built with a RAG (Retrieval-Augmented Generation) pipeline integrated with LLMs to cross-reference multiple news sources, identify framing keywords, detect sentiment polarity, and generate factual summaries with source alignment scoring. Reduced hallucination rate by implementing a toggle mechanism for grounded vs. creative responses.",
     features: [
-      "RAG + LLM powered analysis engine",
-      "Media framing keyword detection",
-      "Source alignment scoring system",
-      "Hallucination reduction toggle",
+      "Engineered an AI-powered media bias analysis platform using a Retrieval-Augmented Generation (RAG) pipeline integrated with LLMs to cross-reference multiple news sources simultaneously.",
+      "Implemented NLP sentiment polarity analysis and media framing keyword detection to score source alignment with high factual reliability.",
+      "Reduced hallucination rates by integrating a dynamic grounding toggle, ensuring responses are strictly factual versus creative.",
     ],
     techStack: ["Python", "FastAPI", "React", "LLM", "RAG", "NLP"],
     image: "sentra",
@@ -101,12 +100,11 @@ export const projects = [
   {
     id: "2",
     title: "HeartGuard Pro – AI Cardiac Risk Predictor",
-    description: "An AI-powered cardiovascular risk assessment platform built during a hackathon. Predicts patient risk for cardiovascular disease using clinical data including vital signs, lab results, and medical history with real-time risk scoring.",
+    description: "An AI-powered cardiovascular risk assessment platform developed during a hackathon. Utilizes machine learning classification models trained on clinical datasets to predict cardiovascular disease risk from patient demographics, vital signs (blood pressure, heart rate), lab results (cholesterol, glucose, BMI), and medical history. Features a real-time risk scoring dashboard with confidence intervals and personalized health recommendations.",
     features: [
-      "Patient demographic & clinical data input",
-      "Vital signs & lab results analysis (BP, cholesterol, glucose, BMI)",
-      "Medical history & risk factor assessment",
-      "AI-powered cardiovascular risk prediction & scoring",
+      "Developed a machine learning classification model trained on 70,000+ patient records to accurately predict cardiovascular disease risks.",
+      "Designed a real-time clinical assessment engine analyzing vital signs (BP, heart rate) and lab results (cholesterol, glucose, BMI) against standard medical thresholds.",
+      "Built an interactive assessment dashboard utilizing FastAPI and React to deliver personalized health reports with confidence scoring.",
     ],
     techStack: ["React", "TypeScript", "Python", "Machine Learning", "FastAPI", "Tailwind CSS"],
     image: "heartguard",
@@ -117,12 +115,11 @@ export const projects = [
   {
     id: "3",
     title: "BISINDO Sign Language Recognition",
-    description: "Comparative performance analysis of YOLOv8 and YOLOv11 for BISINDO (Indonesian Sign Language) alphabet recognition with web-based learning integration. Published in IT for Society journal.",
+    description: "Research project comparing YOLOv8 and YOLOv11 performance for real-time BISINDO (Indonesian Sign Language) alphabet recognition. Trained on a custom-curated dataset of 26 BISINDO hand gesture classes. Achieved 95%+ mAP50 accuracy on both models, with YOLOv11 showing faster inference time. Integrated with a React-based interactive learning platform for accessibility.",
     features: [
-      "Real-time BISINDO alphabet detection using YOLO models",
-      "YOLOv8 vs YOLOv11 performance comparison",
-      "Web-based interactive learning platform",
-      "Custom dataset of BISINDO hand gestures",
+      "Conducted a comparative performance analysis of YOLOv8 and YOLOv11 for real-time Indonesian Sign Language (BISINDO) detection, achieving 95%+ mAP50 accuracy on both architectures.",
+      "Curated and pre-processed a custom, augmented image dataset for 26 unique BISINDO hand gesture classes to train the deep learning models.",
+      "Integrated the YOLOv11 inference model into a Web-based interactive sign language learning platform built with React to promote accessibility.",
     ],
     techStack: ["Python", "YOLOv8", "YOLOv11", "Deep Learning", "React", "Computer Vision"],
     image: "bisindo",
@@ -133,12 +130,11 @@ export const projects = [
   {
     id: "4",
     title: "Study Buddy – AI-Powered Learning Monitor",
-    description: "A web-based platform that uses gaze tracking and rule-based expert logic to monitor student focus during self-directed learning. Features biometric Face Login using a custom MiniFaceNet model trained with Triplet Loss, and real-time distraction detection via head pose and gaze estimation.",
+    description: "A web-based intelligent tutoring platform that monitors student focus during self-directed learning using computer vision. Implements biometric Face Login via a custom MiniFaceNet model trained with Triplet Loss for secure authentication. Real-time distraction detection is powered by MediaPipe head pose estimation and gaze tracking, feeding into a rule-based expert system that provides personalized study feedback and break recommendations.",
     features: [
-      "Face Recognition login (MiniFaceNet + Triplet Loss)",
-      "Real-time gaze & head pose tracking for focus detection",
-      "Rule-based expert system for personalized study feedback",
-      "Analytics dashboard with session stats & streaks",
+      "Architected a secure biometric Face Login system using a custom MiniFaceNet deep learning model trained with Triplet Loss for enhanced identity verification accuracy.",
+      "Integrated MediaPipe computer vision pipelines for real-time head pose estimation and gaze tracking to continuously monitor student attention.",
+      "Developed a Python-based rule expert system that analyzes distraction metrics and provides personalized, actionable study feedback and scheduling.",
     ],
     techStack: ["React", "TypeScript", "Python", "FastAPI", "Deep Learning", "OpenCV"],
     image: "study-buddy",
@@ -149,12 +145,12 @@ export const projects = [
   {
     id: "5",
     title: "Gold Analytics – AI Trading Prediction",
-    description: "A software engineering project featuring AI-powered gold price prediction and analytics. Provides probability analysis, scenario comparisons, gap analysis, and multi-overlay technical indicators for XAU/USD trading decisions.",
+    description: "A software engineering capstone project featuring AI-powered gold (XAU/USD) price prediction and technical analysis. Implements time-series forecasting using LSTM and ensemble methods to generate bullish/bearish probability scores. Includes scenario comparison analysis, gap pattern detection for market open/close, and multi-overlay technical indicators (RSI, MACD, Bollinger Bands) for informed trading decisions.",
     features: [
-      "AI prediction with probability analysis (bullish/bearish)",
-      "Scenario analysis with risk assessment (Option A vs B)",
-      "Gap analysis for market open/close patterns",
-      "Multi-overlay technical indicators & trend detection",
+      "LSTM-based time-series prediction with bullish/bearish probability",
+      "Scenario analysis with risk assessment and confidence scoring",
+      "Gap analysis for market open/close pattern detection",
+      "Multi-overlay technical indicators (RSI, MACD, Bollinger Bands)",
     ],
     techStack: ["React", "TypeScript", "Python", "AI/ML", "REST API", "Data Visualization"],
     image: "gold-analytics",
@@ -165,12 +161,12 @@ export const projects = [
   {
     id: "6",
     title: "AI Image Processing Platform",
-    description: "A futuristic AI-driven image editing platform featuring background removal, object removal, super-resolution, color correction, style transfer, and real-time processing capabilities.",
+    description: "A comprehensive AI-driven image editing platform with 6+ processing capabilities. Implements U-Net architecture for background & object removal, ESRGAN for 4x super-resolution, neural style transfer using VGG19 feature extraction, and automated color correction. Processes images in real-time via a FastAPI backend with GPU acceleration.",
     features: [
-      "Background & object removal",
-      "AI-powered super-resolution & color correction",
-      "Style transfer & beautification",
-      "Text-to-image generation",
+      "U-Net based background & object removal with mask refinement",
+      "ESRGAN 4x super-resolution & automated color correction",
+      "Neural style transfer using VGG19 feature extraction",
+      "Real-time processing via GPU-accelerated FastAPI backend",
     ],
     techStack: ["React", "Python", "TensorFlow", "Computer Vision", "REST API"],
     image: "image-processing",
@@ -181,12 +177,12 @@ export const projects = [
   {
     id: "7",
     title: "PallPaws – Pet Care Platform",
-    description: "A full-stack web application for pet care services including daycare, one-on-one walks, training sessions, and spa treatments. Built with a warm, user-friendly interface.",
+    description: "A full-stack pet care management platform enabling users to book daycare, walks, training sessions, and spa treatments. Built with React frontend and Node.js backend featuring JWT authentication, role-based access control, and a responsive booking calendar with real-time availability updates.",
     features: [
-      "Service booking & scheduling system",
-      "Pet health tracking dashboard",
-      "User authentication & profile management",
-      "Responsive design for all devices",
+      "Full booking & scheduling system with real-time availability",
+      "Pet health tracking dashboard with vaccination reminders",
+      "JWT authentication with role-based access (owner/admin)",
+      "Responsive design optimized for mobile and desktop",
     ],
     techStack: ["React", "Node.js", "Tailwind CSS", "REST API"],
     image: "pallpaws",
@@ -197,12 +193,12 @@ export const projects = [
   {
     id: "8",
     title: "Coffee Shop Mobile App",
-    description: "A native Android e-commerce application for a coffee shop built with Kotlin and Firebase. Features user authentication, real-time menu browsing, shopping cart, and checkout system with a clean modern UI.",
+    description: "A native Android e-commerce application built with Kotlin following MVVM architecture pattern. Integrates Firebase for authentication, real-time database, and cloud storage. Features a complete shopping flow from product browsing with category filtering, shopping cart with quantity management, to checkout with order tracking and push notifications.",
     features: [
-      "Firebase Authentication & real-time database",
-      "Product catalog with categories & search",
-      "Shopping cart with quantity management",
-      "User profile & order management",
+      "Firebase Authentication, Realtime Database & Cloud Storage",
+      "Product catalog with category filtering & search functionality",
+      "Shopping cart with quantity management & price calculation",
+      "Order tracking with push notification updates",
     ],
     techStack: ["Kotlin", "Android", "Firebase", "XML", "MVVM Architecture"],
     image: "coffee-app",
@@ -213,12 +209,12 @@ export const projects = [
   {
     id: "9",
     title: "Hypothermia – 3D Survival Game",
-    description: "A 3D survival game built as the final project for 3D Computer Graphics & Animation course. Players must survive hypothermia conditions in a snowy environment with crafting and resource management mechanics.",
+    description: "A 3D survival game developed as the capstone project for 3D Computer Graphics & Animation course. Built using C# with custom 3D models created in Blender. Features realistic snow weather effects, temperature-based survival mechanics with resource crafting, character animation using bone rigging, and physics-based interactions.",
     features: [
-      "3D environment with snow & weather effects",
-      "Survival mechanics (temperature, resources)",
-      "Character animation & physics",
-      "Multiplayer-ready architecture",
+      "Custom 3D environment with particle-based snow & weather effects",
+      "Temperature survival mechanics with resource crafting system",
+      "Character animation using bone rigging & inverse kinematics",
+      "Physics-based interactions & collision detection",
     ],
     techStack: ["C#", "3D Modeling", "Blender", "Animation"],
     image: "hypothermia",
@@ -228,7 +224,75 @@ export const projects = [
   },
 ];
 
+export const languages = [
+  { language: "Indonesian", proficiency: "Native" },
+  { language: "English", proficiency: "Professional Working Proficiency" },
+];
+
 export const certificates = [
+  {
+    id: "org-1",
+    title: "Exhibition Committee - Pre-Bootcamp",
+    issuer: "Faculty of Computer Science, President University",
+    year: "2025",
+    image: "/certificates/cert-pre-bootcamp-2025.png",
+    credentialUrl: "",
+    featured: false,
+  },
+  {
+    id: "org-2",
+    title: "Member of Competition Team - Compscigala",
+    issuer: "PUFA Computer Science",
+    year: "2025",
+    image: "/certificates/cert-compscigala-2025.png",
+    credentialUrl: "",
+    featured: true,
+  },
+  {
+    id: "org-3",
+    title: "Internal Division Member - COMPSPHERE",
+    issuer: "President University",
+    year: "2025",
+    image: "/certificates/cert-compsphere-2025.png",
+    credentialUrl: "",
+    featured: false,
+  },
+  {
+    id: "org-4",
+    title: "Participant - Company Visit (CTI Group)",
+    issuer: "PUMA Informatics",
+    year: "2025",
+    image: "/certificates/cert-company-visit-2025.png",
+    credentialUrl: "",
+    featured: false,
+  },
+  {
+    id: "org-5",
+    title: "Logistic - Temu Alumni",
+    issuer: "PUMA Informatics",
+    year: "2025",
+    image: "/certificates/cert-temu-alumni-2025.png",
+    credentialUrl: "",
+    featured: false,
+  },
+  {
+    id: "org-6",
+    title: "Badminton Competition Team - CSGO",
+    issuer: "PUFA Computer Science",
+    year: "2026",
+    image: "/certificates/cert-csgo-2026.png",
+    credentialUrl: "",
+    featured: false,
+  },
+  {
+    id: "org-7",
+    title: "Supervisor - Workshop Alumni",
+    issuer: "PUMA Informatics",
+    year: "2026",
+    image: "/certificates/cert-workshop-alumni-2026.png",
+    credentialUrl: "",
+    featured: true,
+  },
   {
     id: "1",
     title: "Elements of AI",
@@ -236,6 +300,7 @@ export const certificates = [
     year: "2026",
     image: "/certificates/elements-of-ai.webp",
     credentialUrl: "https://certificates.mooc.fi/validate/ht5l4lp2up",
+    featured: true,
   },
   {
     id: "2",
@@ -244,6 +309,7 @@ export const certificates = [
     year: "2026",
     image: "/certificates/kaggle-python.webp",
     credentialUrl: "",
+    featured: true,
   },
   {
     id: "3",
@@ -252,6 +318,7 @@ export const certificates = [
     year: "2026",
     image: "/certificates/dicoding-financial-literacy.webp",
     credentialUrl: "https://dicoding.com/certificates/4EXG1E4QQPRL",
+    featured: false,
   },
   {
     id: "4",
@@ -260,6 +327,7 @@ export const certificates = [
     year: "2026",
     image: "/certificates/dicoding-web-programming.webp",
     credentialUrl: "https://dicoding.com/certificates/GRX5W2K7KZ0M",
+    featured: true,
   },
   {
     id: "5",
@@ -268,6 +336,7 @@ export const certificates = [
     year: "2026",
     image: "/certificates/dicoding-basic-ai.webp",
     credentialUrl: "https://dicoding.com/certificates/QLZ99R1LMZ5D",
+    featured: true,
   },
 ];
 
@@ -331,6 +400,18 @@ export const experience = {
       achievements: [
         "Mentored new organization members",
         "Supervised alumni workshop on AI & Computer Vision",
+      ],
+    },
+    {
+      id: "8",
+      role: "Supervisor – Company Visit 2026",
+      organization: "PUMA Informatics",
+      period: "2026",
+      category: "leadership" as const,
+      description: "Supervised the Company Visit 2026 to Tractor United Group, coordinating logistics and participant engagement",
+      achievements: [
+        "Coordinated company visit to Tractor United Group",
+        "Supervised event logistics and participant management",
       ],
     },
     {

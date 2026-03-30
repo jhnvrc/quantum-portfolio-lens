@@ -24,16 +24,11 @@ export const ContactSection = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  /**
-   * Handles form submission with validation and sanitization
-   * SECURITY: All inputs are validated against schema before processing
-   */
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrors({});
     setIsSubmitting(true);
 
-    // Validate all form data using Zod schema
     const validation = validateFormData<ContactFormData>(contactFormSchema, formData);
 
     if (!validation.success) {
@@ -47,12 +42,9 @@ export const ContactSection = () => {
       return;
     }
 
-    // SECURITY: Use validated and sanitized data only
     const sanitizedData = validation.data!;
 
     try {
-      // Send message to email via Web3Forms
-      // TODO: Replace "YOUR_ACCESS_KEY_HERE" with your actual Web3Forms Access Key
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
@@ -91,11 +83,7 @@ export const ContactSection = () => {
     }
   };
 
-  /**
-   * Handles input changes with real-time length validation
-   */
   const handleInputChange = (field: keyof typeof formData, value: string) => {
-    // Clear error when user starts typing
     if (errors[field]) {
       setErrors((prev) => {
         const newErrors = { ...prev };
@@ -106,7 +94,6 @@ export const ContactSection = () => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
-  // SECURITY: Validate and sanitize all external URLs before use
   const socialLinks = [
     { 
       icon: Linkedin, 
@@ -138,7 +125,7 @@ export const ContactSection = () => {
       label: "Email", 
       color: "hover:text-red-400" 
     },
-  ].filter((link) => link.href !== null); // Remove invalid URLs
+  ].filter((link) => link.href !== null);
 
   return (
     <section id="contact" className="py-20 lg:py-32 relative" ref={ref}>
@@ -167,7 +154,6 @@ export const ContactSection = () => {
               <CardContent className="p-6 lg:p-8">
                 <h3 className="text-xl font-display font-semibold mb-6">Send a Message</h3>
                 <form onSubmit={handleSubmit} className="space-y-4" noValidate>
-                  {/* Name Field */}
                   <div>
                     <Label htmlFor="name">
                       Name
@@ -192,7 +178,6 @@ export const ContactSection = () => {
                     )}
                   </div>
 
-                  {/* Email Field */}
                   <div>
                     <Label htmlFor="email">
                       Email
@@ -218,7 +203,6 @@ export const ContactSection = () => {
                     )}
                   </div>
 
-                  {/* Message Field */}
                   <div>
                     <Label htmlFor="message">
                       Message

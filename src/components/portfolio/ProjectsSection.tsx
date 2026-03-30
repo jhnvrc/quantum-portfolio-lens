@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Github, ExternalLink, X } from "lucide-react";
+import { ExternalLink, X } from "lucide-react";
 import { projects } from "@/data/portfolioData";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -61,11 +61,8 @@ export const ProjectsSection = () => {
                     ))}
                   </div>
                   <div className="flex gap-3">
-                    <Button size="sm" variant="outline" asChild onClick={(e) => e.stopPropagation()}>
-                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer"><Github className="w-4 h-4 mr-1" />Code</a>
-                    </Button>
-                    <Button size="sm" className="bg-neon-gradient" asChild onClick={(e) => e.stopPropagation()}>
-                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer"><ExternalLink className="w-4 h-4 mr-1" />Live</a>
+                    <Button size="sm" className="bg-neon-gradient" onClick={(e) => { e.stopPropagation(); setSelectedProject(project); }}>
+                      <ExternalLink className="w-4 h-4 mr-1" />Detail
                     </Button>
                   </div>
                 </CardContent>

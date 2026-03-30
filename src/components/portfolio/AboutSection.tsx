@@ -39,7 +39,7 @@ export const AboutSection = () => {
               <CardContent className="p-6 lg:p-8">
                 <h3 className="text-xl font-display font-semibold mb-4 flex items-center gap-2">
                   <span className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
-                    👤
+                    <MapPin className="w-4 h-4 text-primary" />
                   </span>
                   Who I Am
                 </h3>
@@ -99,7 +99,7 @@ export const AboutSection = () => {
                                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                                 className="px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-sm font-bold border border-blue-500/50 flex items-center gap-1.5 shadow-lg shadow-blue-500/20"
                               >
-                                <span>⭐</span> GPA: {edu.gpa} <span>⭐</span>
+                                GPA: {edu.gpa}
                               </motion.span>
                             ) : (
                               <span className="px-2 py-1 rounded-full bg-accent/50 text-accent-foreground text-xs font-medium">
