@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Linkedin, Github, Instagram, Mail, ArrowDown } from "lucide-react";
+import { Linkedin, Github, Instagram, Mail, ArrowDown, Globe } from "lucide-react";
 import { personalInfo } from "@/data/portfolioData";
 import { Button } from "@/components/ui/button";
 
@@ -117,7 +117,8 @@ export const HeroSection = () => {
                 if (key === "whatsapp") return null;
                 const Icon = key === "linkedin" ? Linkedin :
                   key === "github" ? Github :
-                    key === "instagram" ? Instagram : Mail;
+                    key === "instagram" ? Instagram : 
+                      key === "portfolio" ? Globe : Mail;
                 return (
                   <motion.a
                     key={key}
