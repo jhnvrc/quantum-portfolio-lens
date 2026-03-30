@@ -136,8 +136,8 @@ export const HeroSection = () => {
                   </motion.a>
                 );
               })}
-              <motion.button
-                onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
+              <motion.a
+                href={`mailto:${personalInfo.email}`}
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 1.3, duration: 0.4 }}
@@ -146,7 +146,7 @@ export const HeroSection = () => {
                 whileTap={{ scale: 0.9 }}
               >
                 <Mail className="w-5 h-5 cursor-pointer text-current" />
-              </motion.button>
+              </motion.a>
             </motion.div>
 
             {/* CTA Buttons */}
