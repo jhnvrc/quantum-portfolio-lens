@@ -60,10 +60,15 @@ export const ProjectsSection = () => {
                       <span key={tech} className="px-2 py-1 text-xs rounded-md bg-muted text-muted-foreground">{tech}</span>
                     ))}
                   </div>
-                  <div className="flex gap-3">
+                  <div className="flex gap-2 flex-wrap">
                     <Button size="sm" className="bg-neon-gradient" onClick={(e) => { e.stopPropagation(); setSelectedProject(project); }}>
                       <ExternalLink className="w-4 h-4 mr-1" />Detail
                     </Button>
+                    {project.liveUrl && (
+                      <Button size="sm" variant="outline" className="border-primary/50 text-foreground hover:bg-primary/10" onClick={(e) => { e.stopPropagation(); window.open(project.liveUrl, '_blank'); }}>
+                        <Globe className="w-4 h-4 mr-1" />Demo
+                      </Button>
+                    )}
                     {project.githubUrl && (
                       <Button size="sm" variant="outline" className="border-primary/50 text-foreground hover:bg-primary/10" onClick={(e) => { e.stopPropagation(); window.open(project.githubUrl, '_blank'); }}>
                         <Github className="w-4 h-4 mr-1" />Github

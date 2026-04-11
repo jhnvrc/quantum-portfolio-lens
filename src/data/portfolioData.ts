@@ -156,7 +156,7 @@ export const projects = [
     techStack: ["React", "TypeScript", "Python", "AI/ML", "REST API", "Data Visualization"],
     image: "gold-analytics",
     githubUrl: "https://github.com/Jjvers/idx-index2",
-    liveUrl: "",
+    liveUrl: "https://goldaiprediction.vercel.app/",
     featured: true,
   },
   {
