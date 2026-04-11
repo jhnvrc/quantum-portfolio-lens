@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { ExternalLink, X } from "lucide-react";
+import { ExternalLink, Github, Globe, X } from "lucide-react";
 import { projects } from "@/data/portfolioData";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -64,6 +64,11 @@ export const ProjectsSection = () => {
                     <Button size="sm" className="bg-neon-gradient" onClick={(e) => { e.stopPropagation(); setSelectedProject(project); }}>
                       <ExternalLink className="w-4 h-4 mr-1" />Detail
                     </Button>
+                    {project.githubUrl && (
+                      <Button size="sm" variant="outline" className="border-primary/50 text-foreground hover:bg-primary/10" onClick={(e) => { e.stopPropagation(); window.open(project.githubUrl, '_blank'); }}>
+                        <Github className="w-4 h-4 mr-1" />Github
+                      </Button>
+                    )}
                   </div>
                 </CardContent>
               </Card>
@@ -90,6 +95,18 @@ export const ProjectsSection = () => {
                   {selectedProject.techStack.map((tech) => (
                     <Badge key={tech} variant="secondary">{tech}</Badge>
                   ))}
+                </div>
+                <div className="flex gap-4 pt-4 border-t border-primary/10">
+                  {selectedProject.githubUrl && (
+                    <Button className="flex-1 bg-neon-gradient" onClick={() => window.open(selectedProject.githubUrl, '_blank')}>
+                      <Github className="w-4 h-4 mr-2" />View Code
+                    </Button>
+                  )}
+                  {selectedProject.liveUrl && (
+                    <Button variant="outline" className="flex-1 border-primary" onClick={() => window.open(selectedProject.liveUrl, '_blank')}>
+                      <Globe className="w-4 h-4 mr-2" />Live Demo
+                    </Button>
+                  )}
                 </div>
               </div>
             )}
