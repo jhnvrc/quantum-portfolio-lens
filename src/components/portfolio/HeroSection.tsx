@@ -166,11 +166,21 @@ export const HeroSection = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-primary/50 hover:bg-primary/10 w-full sm:w-auto"
+                className="border-primary/50 hover:bg-primary/10 w-full sm:w-auto px-4"
                 asChild
               >
                 <a href="/cv" target="_blank" rel="noopener noreferrer">
                   Download CV
+                </a>
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-accent/50 hover:bg-accent/10 w-full sm:w-auto px-4"
+                asChild
+              >
+                <a href="/portfolio.html" target="_blank" rel="noopener noreferrer">
+                  Download Portfolio
                 </a>
               </Button>
               <Button

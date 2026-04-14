@@ -10,7 +10,7 @@ export const personalInfo = {
   availability: true,
   availabilityText: "Open for Internship",
   profileImage: "/profile.jpg",
-  cvUrl: "/cv.pdf",
+  cvUrl: "/cv",
   socialLinks: {
     linkedin: "https://linkedin.com/in/johanavsetiawan",
     github: "https://github.com/Jjvers",
