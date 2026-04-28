@@ -6,17 +6,13 @@
   <title>Johana Veronica Setiawan – CV</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --page-w: 210mm;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: 'Inter', 'Calibri', Arial, sans-serif;
-      font-size: 10.5pt;
+      font-size: 10pt;
       color: #111;
-      background: #f0f0f0;
+      background: #e5e7eb;
       line-height: 1.45;
       print-color-adjust: exact;
       -webkit-print-color-adjust: exact;
@@ -53,198 +49,158 @@
       body { background: #fff; }
       .print-bar { display: none !important; }
       .page-wrapper { margin: 0; }
-      .page {
-        box-shadow: none;
-        page-break-after: always;
-        margin: 0;
-      }
+      .page { box-shadow: none; margin: 0; }
     }
 
     /* ── PAGE ── */
     .page-wrapper {
       margin: 48px auto 40px;
-      width: var(--page-w);
+      width: 210mm;
     }
 
     .page {
-      width: var(--page-w);
-      min-height: 297mm;
+      width: 210mm;
+      height: 297mm;
       background: #fff;
-      padding: 18mm 18mm 14mm 18mm;
+      padding: 14mm 17mm 11mm 17mm;
       box-shadow: 0 2px 12px rgba(0,0,0,0.12);
-      margin-bottom: 12px;
-      position: relative;
+      overflow: hidden;
     }
 
     /* ── HEADER ── */
     .cv-header {
       text-align: center;
-      margin-bottom: 12px;
-      padding-bottom: 10px;
-      border-bottom: 2px solid #111;
+      margin-bottom: 8px;
+      padding-bottom: 7px;
+      border-bottom: 1.5px solid #111;
     }
     .cv-name {
-      font-size: 20pt;
+      font-size: 17pt;
       font-weight: 700;
       letter-spacing: 0.04em;
       line-height: 1.1;
-      margin-bottom: 4px;
+      margin-bottom: 3px;
     }
     .cv-headline {
-      font-size: 10pt;
+      font-size: 9.5pt;
       font-weight: 500;
       color: #333;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
     .cv-contacts {
-      font-size: 8.5pt;
+      font-size: 8pt;
       color: #333;
     }
-    .cv-contacts span { margin: 0 6px; }
+    .cv-contacts span { margin: 0 5px; }
     .cv-contacts a { color: #111; text-decoration: none; }
 
     /* ── SECTION ── */
-    .section { margin-bottom: 13px; }
+    .section { margin-bottom: 9px; }
     .section-title {
-      font-size: 9.5pt;
+      font-size: 8.5pt;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       border-bottom: 1px solid #111;
       padding-bottom: 2px;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
-    /* ── ENTRY (experience / education) ── */
-    .entry { margin-bottom: 9px; }
+    /* ── ENTRY ── */
+    .entry { margin-bottom: 6px; }
+    .entry:last-child { margin-bottom: 0; }
     .entry-header {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
     }
     .entry-title {
-      font-size: 10.5pt;
+      font-size: 9.5pt;
       font-weight: 700;
     }
     .entry-right {
-      font-size: 9pt;
-      color: #333;
+      font-size: 8pt;
+      color: #444;
       text-align: right;
       flex-shrink: 0;
-      margin-left: 12px;
+      margin-left: 10px;
     }
     .entry-sub {
-      font-size: 9.5pt;
+      font-size: 8.5pt;
       font-style: italic;
-      color: #333;
-      margin-bottom: 3px;
+      color: #444;
+      margin-bottom: 2px;
     }
     .entry-detail {
-      font-size: 8.5pt;
-      color: #444;
+      font-size: 8pt;
+      color: #555;
     }
+
+    /* ── BULLETS ── */
     .bullets {
       list-style: none;
-      margin-top: 3px;
+      margin-top: 2px;
       padding-left: 0;
     }
     .bullets li {
-      font-size: 9pt;
+      font-size: 8.5pt;
       color: #222;
-      padding-left: 14px;
+      padding-left: 12px;
       position: relative;
-      margin-bottom: 2px;
+      margin-bottom: 1px;
       line-height: 1.4;
     }
     .bullets li::before {
       content: '•';
       position: absolute;
-      left: 3px;
+      left: 2px;
     }
 
     /* ── SKILLS ── */
     .skills-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 4px 20px;
+      gap: 3px 18px;
     }
     .skill-row {
-      font-size: 9pt;
+      font-size: 8.5pt;
       line-height: 1.4;
     }
-    .skill-label {
-      font-weight: 600;
-    }
+    .skill-label { font-weight: 600; }
 
-    /* ── PROJECTS ── */
-    .project-entry { margin-bottom: 11px; }
-    .project-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-    }
-    .project-title {
-      font-size: 10.5pt;
-      font-weight: 700;
-    }
-    .project-stack {
-      font-size: 8.5pt;
-      color: #333;
-      font-style: italic;
-      margin-left: 10px;
-      flex-shrink: 0;
-    }
-    .project-links {
-      font-size: 8.5pt;
-      color: #333;
-      margin-top: 2px;
-    }
-    .project-links a {
-      color: #111;
-    }
-
-    /* ── CERTS ── */
+    /* ── CERTIFICATIONS ── */
     .cert-entry {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      margin-bottom: 4px;
+      margin-bottom: 3px;
     }
-    .cert-left { font-size: 9pt; }
+    .cert-left { font-size: 8.5pt; }
     .cert-title-text { font-weight: 600; }
     .cert-right {
-      font-size: 8.5pt;
-      color: #333;
+      font-size: 8pt;
+      color: #444;
       text-align: right;
       flex-shrink: 0;
-      margin-left: 12px;
+      margin-left: 10px;
     }
 
-    /* ── ORG TABLE ── */
-    .org-table { width: 100%; border-collapse: collapse; font-size: 9pt; }
+    /* ── ORG ACTIVITIES TABLE ── */
+    .org-table { width: 100%; border-collapse: collapse; font-size: 8.5pt; }
     .org-table th {
       text-align: left;
       font-weight: 700;
-      padding: 4px 8px 4px 0;
+      padding: 3px 6px 3px 0;
       border-bottom: 1px solid #ccc;
-      font-size: 8.5pt;
+      font-size: 8pt;
     }
     .org-table td {
-      padding: 4px 8px 4px 0;
+      padding: 3px 6px 3px 0;
       border-bottom: 1px solid #eee;
       vertical-align: top;
-      line-height: 1.4;
+      line-height: 1.35;
     }
     .org-table tr:last-child td { border-bottom: none; }
-
-    /* ── PAGE FOOTER ── */
-    .page-num {
-      position: absolute;
-      bottom: 8mm;
-      right: 18mm;
-      font-size: 8pt;
-      color: #888;
-    }
 
     @page { margin: 0; size: A4; }
   </style>
@@ -254,14 +210,10 @@
 <div class="print-bar">
   <strong>Johana Veronica Setiawan – CV (ATS Format)</strong>
   <button class="btn-print" onclick="window.print()">🖨 Save as PDF</button>
-  <span>Print dialog → Destination: "Save as PDF" → Paper: A4 → Background graphics: ON</span>
+  <span>Print dialog → Destination: "Save as PDF" → Paper: A4 → Margins: None → Background graphics: ON</span>
 </div>
 
 <div class="page-wrapper">
-
-<!-- ═══════════════════════════════
-     PAGE 1 — PROFILE + SKILLS + EXPERIENCE + EDUCATION
-═══════════════════════════════ -->
 <div class="page">
 
   <!-- HEADER -->
@@ -280,11 +232,8 @@
   <!-- PROFILE -->
   <div class="section">
     <div class="section-title">Profile</div>
-    <p style="font-size: 9.5pt; color: #222; line-height: 1.55;">
-      Informatics student at President University with a strong interest in AI/ML and hands-on experience across the full development stack.
-      I enjoy exploring deep learning, computer vision, and NLP while also building frontend interfaces and backend systems.
-      Always eager to learn, take on new challenges, and collaborate on projects that make a real difference — whether it's an AI model, a web app, or a mobile application.
-      Currently <strong>open for internship</strong> opportunities in AI/ML or software engineering.
+    <p style="font-size: 8.5pt; color: #222; line-height: 1.5;">
+      Informatics student at President University (GPA 3.88/4.00) with a strong focus on AI/ML and hands-on experience across the full development stack. Skilled in deep learning, computer vision, and NLP alongside frontend and backend systems. Currently <strong>open for internship</strong> opportunities in AI/ML or software engineering.
     </p>
   </div>
 
@@ -294,11 +243,11 @@
 
     <div class="entry">
       <div class="entry-header">
-        <div class="entry-title">Undergraduate of Informatics</div>
+        <div class="entry-title">Undergraduate of Informatics — Concentration: Artificial Intelligence</div>
         <div class="entry-right">2024 – Present (Expected 2027)</div>
       </div>
-      <div class="entry-sub">President University — Faculty of Computer Science, Cikarang, Indonesia</div>
-      <div class="entry-detail">GPA: 3.88 / 4.00 &nbsp;·&nbsp; Concentration: Artificial Intelligence</div>
+      <div class="entry-sub">President University, Faculty of Computer Science — Cikarang, Indonesia</div>
+      <div class="entry-detail">GPA: 3.88 / 4.00</div>
     </div>
 
     <div class="entry">
@@ -306,7 +255,7 @@
         <div class="entry-title">High School Diploma — Science Track</div>
         <div class="entry-right">2021 – 2024</div>
       </div>
-      <div class="entry-sub">SMA Pangudi Luhur Bernardus Deltamas, Cikarang, Indonesia</div>
+      <div class="entry-sub">SMA Pangudi Luhur Bernardus Deltamas — Cikarang, Indonesia</div>
       <div class="entry-detail">Top 10% of graduating class</div>
     </div>
   </div>
@@ -316,11 +265,11 @@
     <div class="section-title">Skills</div>
     <div class="skills-grid">
       <div class="skill-row"><span class="skill-label">Programming:</span> Python, JavaScript, TypeScript, Java, C#, SQL, Kotlin</div>
-      <div class="skill-row"><span class="skill-label">AI Frameworks:</span> TensorFlow, PyTorch, Keras, Scikit-learn, OpenCV, YOLOv8/v11</div>
       <div class="skill-row"><span class="skill-label">AI / ML:</span> Deep Learning, Computer Vision, NLP, Image Processing</div>
+      <div class="skill-row"><span class="skill-label">AI Frameworks:</span> TensorFlow, PyTorch, Keras, Scikit-learn, OpenCV, YOLOv8/v11</div>
       <div class="skill-row"><span class="skill-label">Frontend:</span> React, Next.js, Tailwind CSS, HTML/CSS, Responsive Design</div>
       <div class="skill-row"><span class="skill-label">Backend:</span> Node.js, Flask, FastAPI, REST API, Firebase</div>
-      <div class="skill-row"><span class="skill-label">Data & Tools:</span> Pandas, NumPy, Matplotlib, Git, GitHub, Jupyter, Colab, Blender</div>
+      <div class="skill-row"><span class="skill-label">Tools:</span> Pandas, NumPy, Git, GitHub, Jupyter, Google Colab, Blender</div>
     </div>
   </div>
 
@@ -335,8 +284,7 @@
       </div>
       <div class="entry-sub">PUMA Informatics, President University</div>
       <ul class="bullets">
-        <li>Supervising events and actively contributing to organizational communication and external relations</li>
-        <li>Active contributor in event planning and execution for faculty-level events</li>
+        <li>Oversee external communication, event supervision, and faculty-level event planning and execution</li>
       </ul>
     </div>
 
@@ -347,7 +295,7 @@
       </div>
       <div class="entry-sub">PUMA Informatics, President University</div>
       <ul class="bullets">
-        <li>Led full end-to-end event planning and coordination for PUMA Informatics internal welcoming event</li>
+        <li>Led end-to-end planning and coordination for the PUMA Informatics internal welcoming event</li>
       </ul>
     </div>
 
@@ -358,8 +306,7 @@
       </div>
       <div class="entry-sub">PUMA Informatics, President University</div>
       <ul class="bullets">
-        <li>Mentored new organization members during onboarding</li>
-        <li>Supervised alumni workshop focused on AI &amp; Computer Vision</li>
+        <li>Mentored new members during onboarding; supervised an alumni workshop focused on AI &amp; Computer Vision</li>
       </ul>
     </div>
 
@@ -375,220 +322,37 @@
     </div>
   </div>
 
-  <!-- LANGUAGES -->
-  <div class="section">
-    <div class="section-title">Languages</div>
-    <div style="display: flex; gap: 30px; font-size: 9pt;">
-      <span><strong>Indonesian</strong> – Native</span>
-      <span><strong>English</strong> – Professional Working Proficiency</span>
-    </div>
-  </div>
-
-  <div class="page-num">1 / 2</div>
-</div><!-- /page 1 -->
-
-
-<!-- ═══════════════════════════════
-     PAGE 2 — PROJECTS + CERTIFICATES + ACTIVITIES
-═══════════════════════════════ -->
-<div class="page">
-
-  <!-- PROJECTS -->
-  <div class="section">
-    <div class="section-title">Projects</div>
-
-    <div class="project-entry">
-      <div class="project-header">
-        <div class="project-title">Sentra – Media Bias Analysis Platform</div>
-        <div class="project-stack">Python, FastAPI, React, LLM, RAG, NLP</div>
-      </div>
-      <div class="project-links">GitHub: <a href="https://github.com/Jjvers/Sentra">github.com/Jjvers/Sentra</a></div>
-      <ul class="bullets">
-        <li>Engineered an AI-powered media bias detection platform using a Retrieval-Augmented Generation (RAG) pipeline integrated with LLMs to cross-reference multiple news sources simultaneously</li>
-        <li>Implemented NLP sentiment polarity analysis and media framing keyword detection to score source alignment with high factual reliability</li>
-        <li>Reduced hallucination rates by integrating a dynamic grounding toggle for strictly factual vs. creative responses</li>
-      </ul>
-    </div>
-
-    <div class="project-entry">
-      <div class="project-header">
-        <div class="project-title">HeartGuard Pro – AI Cardiac Risk Predictor</div>
-        <div class="project-stack">React, TypeScript, Python, ML, FastAPI</div>
-      </div>
-      <div class="project-links">GitHub: <a href="https://github.com/Jjvers/heart-guard">github.com/Jjvers/heart-guard</a></div>
-      <ul class="bullets">
-        <li>Developed a machine learning classification model trained on 70,000+ patient records to accurately predict cardiovascular disease risk</li>
-        <li>Designed a real-time clinical assessment engine analyzing vital signs (BP, heart rate) and lab results (cholesterol, glucose, BMI) against medical thresholds</li>
-        <li>Built an interactive assessment dashboard with FastAPI and React delivering personalized health reports with confidence scoring</li>
-      </ul>
-    </div>
-
-    <div class="project-entry">
-      <div class="project-header">
-        <div class="project-title">BISINDO Sign Language Recognition</div>
-        <div class="project-stack">Python, YOLOv8, YOLOv11, Deep Learning, React, Computer Vision</div>
-      </div>
-      <ul class="bullets">
-        <li>Conducted comparative analysis of YOLOv8 vs. YOLOv11 for real-time BISINDO alphabet recognition, achieving 95%+ mAP50 on both architectures</li>
-        <li>Curated and pre-processed a custom augmented image dataset for 26 unique BISINDO hand gesture classes</li>
-        <li>Integrated YOLOv11 inference model into a web-based interactive sign language learning platform built with React</li>
-      </ul>
-    </div>
-
-    <div class="project-entry">
-      <div class="project-header">
-        <div class="project-title">Study Buddy – AI-Powered Learning Monitor</div>
-        <div class="project-stack">React, TypeScript, Python, FastAPI, Deep Learning, OpenCV</div>
-      </div>
-      <div class="project-links">GitHub: <a href="https://github.com/Jjvers/BrainFocusAI">github.com/Jjvers/BrainFocusAI</a></div>
-      <ul class="bullets">
-        <li>Architected a biometric Face Login system using a custom MiniFaceNet model trained with Triplet Loss for secure identity verification</li>
-        <li>Integrated MediaPipe computer vision pipelines for real-time head pose estimation and gaze tracking to monitor student attention</li>
-        <li>Developed a Python rule-based expert system analyzing distraction metrics to provide personalized study feedback</li>
-      </ul>
-    </div>
-
-    <div class="project-entry">
-      <div class="project-header">
-        <div class="project-title">Gold Analytics – AI Trading Prediction</div>
-        <div class="project-stack">React, TypeScript, Python, LSTM, REST API</div>
-      </div>
-      <div class="project-links">
-        GitHub: <a href="https://github.com/Jjvers/idx-index2">github.com/Jjvers/idx-index2</a> &nbsp;|&nbsp;
-        Live: <a href="https://goldaiprediction.vercel.app/">goldaiprediction.vercel.app</a>
-      </div>
-      <ul class="bullets">
-        <li>Built an LSTM-based time-series forecasting model to generate bullish/bearish probability scores for XAU/USD</li>
-        <li>Implemented scenario comparison analysis with risk assessment, confidence scoring, and gap pattern detection</li>
-        <li>Designed multi-overlay technical indicator charts: RSI, MACD, and Bollinger Bands for informed trading decisions</li>
-      </ul>
-    </div>
-
-    <div class="project-entry">
-      <div class="project-header">
-        <div class="project-title">AI Image Processing Platform</div>
-        <div class="project-stack">React, Python, TensorFlow, Computer Vision, FastAPI</div>
-      </div>
-      <div class="project-links">GitHub: <a href="https://github.com/Jjvers/imgproo1">github.com/Jjvers/imgproo1</a></div>
-      <ul class="bullets">
-        <li>Built 6+ AI image processing features: U-Net background removal, ESRGAN 4x super-resolution, VGG19 neural style transfer, and auto color correction</li>
-        <li>Processed images via a GPU-accelerated FastAPI backend with real-time results</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- CERTIFICATES -->
+  <!-- CERTIFICATIONS -->
   <div class="section">
     <div class="section-title">Certifications</div>
-
     <div class="cert-entry">
       <div class="cert-left"><span class="cert-title-text">Elements of AI</span> — University of Helsinki &amp; MinnaLearn</div>
       <div class="cert-right">2026 &nbsp;|&nbsp; <a href="https://certificates.mooc.fi/validate/ht5l4lp2up" style="color:#333;">Verify</a></div>
-    </div>
-    <div class="cert-entry">
-      <div class="cert-left"><span class="cert-title-text">Python</span> — Kaggle</div>
-      <div class="cert-right">2026</div>
     </div>
     <div class="cert-entry">
       <div class="cert-left"><span class="cert-title-text">Belajar Dasar AI</span> — Dicoding Indonesia</div>
       <div class="cert-right">2026 &nbsp;|&nbsp; <a href="https://dicoding.com/certificates/QLZ99R1LMZ5D" style="color:#333;">Verify</a></div>
     </div>
     <div class="cert-entry">
+      <div class="cert-left"><span class="cert-title-text">Python</span> — Kaggle</div>
+      <div class="cert-right">2026</div>
+    </div>
+    <div class="cert-entry">
       <div class="cert-left"><span class="cert-title-text">Belajar Dasar Pemrograman Web</span> — Dicoding Indonesia</div>
       <div class="cert-right">2026 &nbsp;|&nbsp; <a href="https://dicoding.com/certificates/GRX5W2K7KZ0M" style="color:#333;">Verify</a></div>
     </div>
-    <div class="cert-entry">
-      <div class="cert-left"><span class="cert-title-text">Introduction to Financial Literacy</span> — Dicoding Indonesia</div>
-      <div class="cert-right">2026 &nbsp;|&nbsp; <a href="https://dicoding.com/certificates/4EXG1E4QQPRL" style="color:#333;">Verify</a></div>
+  </div>
+
+  <!-- LANGUAGES -->
+  <div class="section">
+    <div class="section-title">Languages</div>
+    <div style="display: flex; gap: 28px; font-size: 8.5pt;">
+      <span><strong>Indonesian</strong> — Native</span>
+      <span><strong>English</strong> — Professional Working Proficiency</span>
     </div>
   </div>
 
-  <!-- ORGANIZATIONAL ACTIVITIES (SUMMARY) -->
-  <div class="section">
-    <div class="section-title">Organizational Activities</div>
-    <table class="org-table">
-      <thead>
-        <tr>
-          <th style="width: 46%;">Role</th>
-          <th style="width: 30%;">Organization</th>
-          <th style="width: 12%;">Period</th>
-          <th style="width: 12%;">Type</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Vice of Division Relations &amp; Communication</td>
-          <td>PUMA Informatics</td>
-          <td>2025–Present</td>
-          <td>Leadership</td>
-        </tr>
-        <tr>
-          <td>Member of Internal Relations</td>
-          <td>PUMA Informatics</td>
-          <td>2024–2025</td>
-          <td>Committee</td>
-        </tr>
-        <tr>
-          <td>Project Manager – Unitics</td>
-          <td>PUMA Informatics</td>
-          <td>Dec 2024</td>
-          <td>Leadership</td>
-        </tr>
-        <tr>
-          <td>Vice Project Manager – Inforum</td>
-          <td>PUMA Informatics</td>
-          <td>Jul 2025</td>
-          <td>Leadership</td>
-        </tr>
-        <tr>
-          <td>Supervisor – Workshop Alumni, Unitics 2025</td>
-          <td>PUMA Informatics</td>
-          <td>2025–2026</td>
-          <td>Leadership</td>
-        </tr>
-        <tr>
-          <td>Supervisor – Company Visit 2026</td>
-          <td>PUMA Informatics</td>
-          <td>2026</td>
-          <td>Leadership</td>
-        </tr>
-        <tr>
-          <td>PR &amp; Documentation – CODDOC Social Project</td>
-          <td>President University</td>
-          <td>2025</td>
-          <td>Social</td>
-        </tr>
-        <tr>
-          <td>Member – Competition Team (Compscigala)</td>
-          <td>PUFA Computer Science</td>
-          <td>2025</td>
-          <td>Committee</td>
-        </tr>
-        <tr>
-          <td>Internal Division – COMPSPHERE 2025</td>
-          <td>President University</td>
-          <td>2025</td>
-          <td>Committee</td>
-        </tr>
-        <tr>
-          <td>Exhibition Committee – Pre-Bootcamp</td>
-          <td>Faculty of CS, PU</td>
-          <td>2025</td>
-          <td>Committee</td>
-        </tr>
-        <tr>
-          <td>Badminton Division – CSGO</td>
-          <td>PUFA Computer Science</td>
-          <td>2026</td>
-          <td>Committee</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="page-num">2 / 2</div>
-</div><!-- /page 2 -->
-
+</div><!-- /page -->
 </div><!-- /page-wrapper -->
 </body>
 </html>
