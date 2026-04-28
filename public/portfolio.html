@@ -6,403 +6,418 @@
   <title>Johana Veronica Setiawan – Project Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    /* ===== RESET ===== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    :root {
-      --page-w: 210mm;
-      --primary: #111827;
-      --secondary: #374151;
-      --muted: #6b7280;
-      --accent: #2563eb;
-      --border: #e5e7eb;
-      --bg: #ffffff;
-      --bg-alt: #f9fafb;
-    }
-
     body {
-      font-family: 'Inter', system-ui, sans-serif;
+      font-family: 'Inter', 'Calibri', Arial, sans-serif;
       font-size: 10pt;
-      color: var(--primary);
-      background-color: #e5e7eb;
-      line-height: 1.6;
-      -webkit-print-color-adjust: exact;
+      color: #111;
+      background: #e5e7eb;
+      line-height: 1.45;
       print-color-adjust: exact;
+      -webkit-print-color-adjust: exact;
     }
 
-    /* ===== PRINT BAR ===== */
+    /* ── PRINT BAR ── */
     .print-bar {
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 999;
       background: #fff;
-      border-bottom: 1px solid var(--border);
-      padding: 10px 20px;
+      border-bottom: 1px solid #ccc;
+      padding: 8px 20px;
       display: flex;
       align-items: center;
       gap: 12px;
       font-size: 9pt;
-      color: var(--secondary);
+      color: #555;
     }
     .btn-print {
-      padding: 6px 16px;
-      background: var(--primary);
+      padding: 6px 18px;
+      background: #111;
       color: #fff;
       border: none;
       border-radius: 4px;
       font-family: inherit;
       font-size: 9pt;
+      font-weight: 600;
       cursor: pointer;
     }
-    .btn-print:hover { background: #000; }
-    @media print { .print-bar { display: none !important; } }
+    .btn-print:hover { background: #333; }
 
-    /* ===== PAGE WRAPPER ===== */
+    @media print {
+      body { background: #fff; }
+      .print-bar { display: none !important; }
+      .page-wrapper { margin: 0; }
+      .page { box-shadow: none; margin: 0; }
+    }
+
+    /* ── PAGE ── */
     .page-wrapper {
-      margin: 50px auto 40px;
-      width: var(--page-w);
+      margin: 48px auto 40px;
+      width: 210mm;
     }
 
     .page {
-      width: var(--page-w);
+      width: 210mm;
       min-height: 297mm;
-      background: var(--bg);
-      padding: 22mm 20mm;
-      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-      margin-bottom: 20px;
+      background: #fff;
+      padding: 14mm 17mm 16mm 17mm;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+      margin-bottom: 16px;
       position: relative;
     }
 
+    @page { margin: 0; size: A4; }
+
     @media print {
-      body { background: transparent; }
-      .page-wrapper { margin: 0; width: auto; }
       .page {
-        box-shadow: none;
-        margin: 0;
         page-break-after: always;
+        margin-bottom: 0;
+      }
+      .page:last-child {
+        page-break-after: avoid;
       }
     }
 
-    /* ===== HEADER ===== */
+    /* ── HEADER (page 1 only) ── */
     .doc-header {
-      padding-bottom: 16px;
-      margin-bottom: 24px;
-      border-bottom: 2px solid var(--primary);
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
+      text-align: center;
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1.5px solid #111;
     }
-    .doc-title-area h1 {
-      font-size: 20pt;
+    .doc-name {
+      font-size: 17pt;
       font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 4px;
-      letter-spacing: -0.02em;
+      letter-spacing: 0.04em;
+      line-height: 1.1;
+      margin-bottom: 3px;
     }
     .doc-subtitle {
-      font-size: 11pt;
-      color: var(--secondary);
-    }
-    .doc-contact {
-      text-align: right;
-      font-size: 9pt;
-      color: var(--secondary);
-    }
-    .doc-contact a { color: var(--primary); text-decoration: none; }
-    .doc-contact p { margin-bottom: 2px; }
-
-    /* ===== SECTION ===== */
-    .section-title {
-      font-size: 12pt;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 16px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    /* ===== PROJECT ===== */
-    .project {
-      margin-bottom: 28px;
-      page-break-inside: avoid;
-    }
-    .project-header {
+      font-size: 9.5pt;
+      font-weight: 500;
+      color: #333;
       margin-bottom: 4px;
     }
-    .project-title {
-      font-size: 13pt;
-      font-weight: 700;
-      color: var(--primary);
-      display: inline-block;
+    .doc-contacts {
+      font-size: 8pt;
+      color: #333;
     }
-    .project-links {
-      display: inline-block;
-      margin-left: 10px;
-      font-size: 9pt;
-    }
-    .project-links a {
-      color: var(--secondary);
-      text-decoration: underline;
-      margin-right: 12px;
-    }
-    
-    .tech-stack {
-      font-size: 9pt;
-      color: var(--muted);
+    .doc-contacts span { margin: 0 5px; }
+    .doc-contacts a { color: #111; text-decoration: none; }
+
+    /* ── CONTINUATION HEADER (pages 2+) ── */
+    .cont-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
       margin-bottom: 10px;
+      padding-bottom: 6px;
+      border-bottom: 1.5px solid #111;
+    }
+    .cont-name {
+      font-size: 10pt;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .cont-label {
+      font-size: 8.5pt;
+      color: #444;
       font-style: italic;
     }
 
-    .project-intro {
-      font-size: 9.5pt;
-      color: var(--secondary);
-      line-height: 1.6;
+    /* ── SECTION ── */
+    .section { margin-bottom: 10px; }
+    .section-title {
+      font-size: 8.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border-bottom: 1px solid #111;
+      padding-bottom: 2px;
       margin-bottom: 8px;
     }
 
-    .project-features {
-      list-style-type: disc;
-      padding-left: 18px;
-      margin-top: 0;
-    }
-    .project-features li {
-      font-size: 9.5pt;
-      color: var(--secondary);
-      margin-bottom: 4px;
-      line-height: 1.5;
-    }
-
-    /* ===== OTHER PROJECTS GRID ===== */
-    .other-projects {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      page-break-inside: auto;
-    }
-    .other-project-row {
-      border-top: 1px solid var(--border);
-      padding-top: 12px;
+    /* ── PROJECT ENTRY ── */
+    .project {
+      margin-bottom: 13px;
       page-break-inside: avoid;
     }
-    .other-project-row .project-title { font-size: 11pt; }
-    .other-project-row .tech-stack { margin-bottom: 4px; font-size: 8.5pt; }
-    .other-project-row .project-intro { margin-bottom: 0; }
+    .project:last-child { margin-bottom: 0; }
 
-    /* ===== FOOTER ===== */
-    .page-footer {
-      position: absolute;
-      bottom: 12mm;
-      left: 20mm;
-      right: 20mm;
+    .project-header {
       display: flex;
       justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 1px;
+    }
+    .project-title {
+      font-size: 10pt;
+      font-weight: 700;
+      color: #111;
+    }
+    .project-links {
+      font-size: 7.5pt;
+      color: #444;
+      flex-shrink: 0;
+      margin-left: 10px;
+    }
+    .project-links a {
+      color: #111;
+      text-decoration: underline;
+      margin-left: 6px;
+    }
+    .project-stack {
       font-size: 8pt;
-      color: var(--muted);
-      border-top: 1px solid var(--border);
-      padding-top: 8px;
+      color: #555;
+      font-style: italic;
+      margin-bottom: 4px;
+    }
+    .project-desc {
+      font-size: 8.5pt;
+      color: #222;
+      line-height: 1.5;
+      margin-bottom: 4px;
+    }
+    .bullets {
+      list-style: none;
+      padding-left: 0;
+    }
+    .bullets li {
+      font-size: 8.5pt;
+      color: #222;
+      padding-left: 12px;
+      position: relative;
+      margin-bottom: 2px;
+      line-height: 1.4;
+    }
+    .bullets li::before {
+      content: '•';
+      position: absolute;
+      left: 2px;
+    }
+
+    /* ── PAGE FOOTER ── */
+    .page-foot {
+      position: absolute;
+      bottom: 8mm;
+      left: 17mm;
+      right: 17mm;
+      display: flex;
+      justify-content: space-between;
+      font-size: 7.5pt;
+      color: #888;
+      border-top: 1px solid #ddd;
+      padding-top: 4px;
     }
   </style>
 </head>
 <body>
 
 <div class="print-bar">
-  <span>Johana Veronica Setiawan – Portfolio</span>
-  <button class="btn-print" onclick="window.print()">Save as PDF</button>
+  <strong>Johana Veronica Setiawan – Project Portfolio</strong>
+  <button class="btn-print" onclick="window.print()">🖨 Save as PDF</button>
+  <span>Print dialog → Destination: "Save as PDF" → Paper: A4 → Margins: None → Background graphics: ON</span>
 </div>
 
 <div class="page-wrapper">
 
-<!-- ==================== PAGE 1 ==================== -->
+<!-- ══════════════════════════════════════
+     PAGE 1
+══════════════════════════════════════ -->
 <div class="page">
+
+  <!-- HEADER -->
   <div class="doc-header">
-    <div class="doc-title-area">
-      <h1>Johana Veronica Setiawan</h1>
-      <div class="doc-subtitle">Project Portfolio</div>
-    </div>
-    <div class="doc-contact">
-      <p>johanaveronicasetiawan@gmail.com</p>
-      <p><a href="https://linkedin.com/in/johanavsetiawan">linkedin.com/in/johanavsetiawan</a></p>
-      <p><a href="https://github.com/Jjvers">github.com/Jjvers</a></p>
+    <div class="doc-name">JOHANA VERONICA SETIAWAN</div>
+    <div class="doc-subtitle">Project Portfolio &nbsp;|&nbsp; AI / ML &nbsp;&amp;&nbsp; Full-Stack Development</div>
+    <div class="doc-contacts">
+      <span>johanaveronicasetiawan@gmail.com</span> |
+      <span>+62 813-8733-7709</span> |
+      <span><a href="https://linkedin.com/in/johanavsetiawan">linkedin.com/in/johanavsetiawan</a></span> |
+      <span><a href="https://github.com/Jjvers">github.com/Jjvers</a></span>
     </div>
   </div>
 
-  <p style="font-size: 10pt; color: var(--secondary); margin-bottom: 24px; line-height: 1.6;">
-    This document outlines my technical projects, focusing on the system architecture, underlying technologies, and technical approaches. My work primarily revolves around artificial intelligence, deep learning implementations, and full-stack software development.
-  </p>
+  <!-- SELECTED PROJECTS -->
+  <div class="section">
+    <div class="section-title">Selected Projects</div>
 
-  <div class="section-title">Selected Works</div>
-
-  <!-- PROJECT 1 -->
-  <div class="project">
-    <div class="project-header">
-      <h2 class="project-title">Sentra – Media Bias & Hallucination Analysis</h2>
-      <div class="project-links">
-        <a href="https://github.com/Jjvers/Sentra">GitHub</a>
+    <!-- PROJECT 1 -->
+    <div class="project">
+      <div class="project-header">
+        <div class="project-title">Sentra – Media Bias &amp; Hallucination Analysis Platform</div>
+        <div class="project-links"><a href="https://github.com/Jjvers/Sentra">GitHub</a></div>
       </div>
+      <div class="project-stack">Python · FastAPI · React · Large Language Models · RAG · NLP</div>
+      <p class="project-desc">
+        An AI-driven platform that analyzes news articles for media bias and generative hallucinations. The system uses a Retrieval-Augmented Generation (RAG) pipeline integrated with LLMs to cross-reference multiple news sources simultaneously, neutralizing single-source echo-chamber effects.
+      </p>
+      <ul class="bullets">
+        <li>Engineered a RAG pipeline to synthesize data across publishers, preventing single-source bias during summarization</li>
+        <li>Implemented NLP sentiment polarity analysis and media framing keyword detection to score source alignment</li>
+        <li>Built a dynamic grounding mechanism that constrains model outputs to validated facts, reducing hallucination rates</li>
+      </ul>
     </div>
-    <div class="tech-stack">
-      Python, FastAPI, React, Large Language Models, RAG, NLP
-    </div>
-    <p class="project-intro">
-      Sentra is an AI-driven platform I developed to analyze news articles for media bias and generative hallucinations. At its core, the system utilizes a Retrieval-Augmented Generation (RAG) pipeline integrated with large language models to cross-reference multiple news sources concurrently, actively neutralizing echo-chamber effects.
-    </p>
-    <ul class="project-features">
-      <li>Engineered the RAG pipeline to synthesize data points across publishers, preventing single-source bias during summarization.</li>
-      <li>Programmed Natural Language Processing algorithms to perform sentiment polarity analysis and detect specific framing keywords.</li>
-      <li>Built a dynamic grounding mechanism into the generation layer that firmly constrains the model's outputs to validated facts, minimizing hallucinations.</li>
-    </ul>
-  </div>
 
-  <!-- PROJECT 2 -->
-  <div class="project">
-    <div class="project-header">
-      <h2 class="project-title">HeartGuard Pro – Cardiac Risk Predictor</h2>
-      <div class="project-links">
-        <a href="https://github.com/Jjvers/heart-guard">GitHub</a>
+    <!-- PROJECT 2 -->
+    <div class="project">
+      <div class="project-header">
+        <div class="project-title">HeartGuard Pro – AI Cardiac Risk Predictor</div>
+        <div class="project-links"><a href="https://github.com/Jjvers/heart-guard">GitHub</a></div>
       </div>
+      <div class="project-stack">React · TypeScript · Python · Machine Learning · FastAPI</div>
+      <p class="project-desc">
+        A cardiovascular risk assessment tool backed by an ML classification model trained on 70,000+ patient records to predict disease likelihood based on demographics, vital signs, and laboratory results.
+      </p>
+      <ul class="bullets">
+        <li>Trained and optimized a multi-variable ML classifier on a large-scale clinical dataset</li>
+        <li>Designed a supplementary rule engine that contextualizes raw physiological data against established medical thresholds</li>
+        <li>Connected FastAPI processing logic to a React dashboard delivering real-time health reports with confidence scoring</li>
+      </ul>
     </div>
-    <div class="tech-stack">
-      React, TypeScript, Python, Machine Learning, FastAPI
+
+    <!-- PROJECT 3 -->
+    <div class="project">
+      <div class="project-header">
+        <div class="project-title">BISINDO Sign Language Recognition</div>
+        <div class="project-links"></div>
+      </div>
+      <div class="project-stack">Python · YOLOv8 · YOLOv11 · Deep Learning · Computer Vision · React</div>
+      <p class="project-desc">
+        A research-focused computer vision project evaluating state-of-the-art object detection models for real-time Indonesian Sign Language (BISINDO) translation, covering the full pipeline from custom dataset curation to web-based inference.
+      </p>
+      <ul class="bullets">
+        <li>Curated, annotated, and pre-processed a custom dataset representing 26 unique BISINDO hand gesture classes</li>
+        <li>Conducted comparative performance analysis between YOLOv8 and YOLOv11, achieving 95%+ mAP50 on both architectures</li>
+        <li>Integrated YOLOv11 inference into a React web app with real-time webcam feedback for interactive learning</li>
+      </ul>
     </div>
-    <p class="project-intro">
-      I developed HeartGuard Pro as a cardiovascular risk assessment tool aimed at processing clinical data. The backend relies on a machine learning classification model that I trained and tuned using a dataset of over 70,000 patient records to calculate the likelihood of cardiovascular disease based on demographics, vital signs, and biochemistry results.
-    </p>
-    <ul class="project-features">
-      <li>Trained and optimized a predictive machine learning classifier focused on multi-variable diagnostic data handling.</li>
-      <li>Designed a supplementary rules engine that contextualizes raw physiological data—like blood pressure and cholesterol—against established medical thresholds.</li>
-      <li>Connected the FastAPI processing logic to a React dashboard, delivering continuous, low-latency health reports complete with confidence scoring metrics.</li>
-    </ul>
+
   </div>
 
-  <div class="page-footer">
-    <span>Johana Veronica Setiawan</span>
-    <span>1 / 3</span>
+  <div class="page-foot">
+    <span>Johana Veronica Setiawan — Project Portfolio</span>
+    <span>1 / 2</span>
   </div>
-</div>
+</div><!-- /page 1 -->
 
-<!-- ==================== PAGE 2 ==================== -->
+
+<!-- ══════════════════════════════════════
+     PAGE 2
+══════════════════════════════════════ -->
 <div class="page">
-  <!-- PROJECT 3 -->
-  <div class="project">
-    <div class="project-header">
-      <h2 class="project-title">BISINDO Sign Language Recognition</h2>
-    </div>
-    <div class="tech-stack">
-      Python, YOLOv8, YOLOv11, Computer Vision, React
-    </div>
-    <p class="project-intro">
-      This research-focused computer vision project was aimed at evaluating state-of-the-art object detection models for real-time Indonesian Sign Language (BISINDO) translation. I handled the entire pipeline from custom dataset curation to real-time inference optimization for the web.
-    </p>
-    <ul class="project-features">
-      <li>Curated, annotated, and pre-processed a custom imagery dataset representing 26 unique BISINDO hand gestures.</li>
-      <li>Conducted extensive comparative performance testing between YOLOv8 and YOLOv11 architectures, achieving over 95% mAP50 accuracy on gesture detection.</li>
-      <li>Integrated the accelerated YOLOv11 inference model into a web-based React application, providing users with responsive webcam feedback for interactive learning.</li>
-    </ul>
+
+  <!-- CONTINUATION HEADER -->
+  <div class="cont-header">
+    <div class="cont-name">JOHANA VERONICA SETIAWAN</div>
+    <div class="cont-label">Project Portfolio — continued</div>
   </div>
 
-  <!-- PROJECT 4 -->
-  <div class="project">
-    <div class="project-header">
-      <h2 class="project-title">Study Buddy – AI Learning Monitor</h2>
-      <div class="project-links">
-        <a href="https://github.com/Jjvers/BrainFocusAI">GitHub</a>
+  <div class="section">
+    <div class="section-title">Selected Projects (continued)</div>
+
+    <!-- PROJECT 4 -->
+    <div class="project">
+      <div class="project-header">
+        <div class="project-title">Study Buddy – AI-Powered Learning Monitor</div>
+        <div class="project-links"><a href="https://github.com/Jjvers/BrainFocusAI">GitHub</a></div>
       </div>
+      <div class="project-stack">React · TypeScript · Python · FastAPI · Deep Learning · OpenCV · MediaPipe</div>
+      <p class="project-desc">
+        An intelligent tutoring web app that monitors student focus during self-directed study sessions via biometric identification and real-time computer vision pipelines.
+      </p>
+      <ul class="bullets">
+        <li>Architected a biometric face login system powered by a custom MiniFaceNet model trained with Triplet Loss</li>
+        <li>Integrated MediaPipe with OpenCV for continuous head pose estimation and gaze vector tracking</li>
+        <li>Developed a Python expert-system rule engine that parses distraction metrics and issues personalized study feedback</li>
+      </ul>
     </div>
-    <div class="tech-stack">
-      React, TypeScript, FastAPI, OpenCV, MediaPipe
-    </div>
-    <p class="project-intro">
-      Study Buddy is an intelligent tutoring web application I built to help monitor student focus metrics during self-directed study sessions. It leverages in-browser computer vision and deep learning biometric identification to replace standard authentication and provide automated focus tracking.
-    </p>
-    <ul class="project-features">
-      <li>Architected a biometric facial recognition login system powered by a custom MiniFaceNet deep learning model that I trained using Triplet Loss.</li>
-      <li>Integrated MediaPipe with OpenCV to continuously calculate head pose estimation and eye gaze vectors.</li>
-      <li>Developed a Python-based rule expert system that parses temporal distraction metrics to issue personalized feedback and automated break recommendations.</li>
-    </ul>
-  </div>
 
-  <!-- PROJECT 5 -->
-  <div class="project">
-    <div class="project-header">
-      <h2 class="project-title">Gold Analytics – AI Trading Prediction</h2>
-      <div class="project-links">
-        <a href="https://goldaiprediction.vercel.app/">Live App</a>
-        <a href="https://github.com/Jjvers/idx-index2">GitHub</a>
+    <!-- PROJECT 5 -->
+    <div class="project">
+      <div class="project-header">
+        <div class="project-title">Gold Analytics – AI Trading Prediction Platform</div>
+        <div class="project-links">
+          <a href="https://goldaiprediction.vercel.app/">Live</a>
+          <a href="https://github.com/Jjvers/idx-index2">GitHub</a>
+        </div>
       </div>
+      <div class="project-stack">React · TypeScript · Python · LSTM Neural Networks · REST API</div>
+      <p class="project-desc">
+        A quantitative analysis platform providing AI-driven predictive insights and technical charting for the XAU/USD gold market, combining deep learning techniques with traditional market analysis indicators.
+      </p>
+      <ul class="bullets">
+        <li>Built an LSTM time-series forecasting model to process historical price data and output bullish/bearish probability scores</li>
+        <li>Implemented scenario comparison analysis with risk assessment, confidence scoring, and gap pattern detection</li>
+        <li>Designed multi-overlay interactive charts with technical indicators: RSI, MACD, and Bollinger Bands</li>
+      </ul>
     </div>
-    <div class="tech-stack">
-      React, TypeScript, Python, LSTM Neural Networks, REST API
-    </div>
-    <p class="project-intro">
-      For my software engineering capstone, I developed a quantitative analysis platform that provides predictive insights and technical charting for the XAU/USD gold market, combining deep learning techniques with traditional market analysis.
-    </p>
-    <ul class="project-features">
-      <li>Constructed a Long Short-Term Memory (LSTM) time-series forecasting model to process historical price movements and output market sentiment probabilities.</li>
-      <li>Programmed mathematical scenario analysis algorithms that dynamically generate risk evaluations and confidence scoring.</li>
-      <li>Built fully interactive frontend charts with multi-overlay technical indicators (RSI, MACD, Bollinger Bands) to cross-reference AI predictions in real-time.</li>
-    </ul>
-  </div>
 
-  <div class="page-footer">
-    <span>Johana Veronica Setiawan</span>
-    <span>2 / 3</span>
-  </div>
-</div>
-
-<!-- ==================== PAGE 3 ==================== -->
-<div class="page">
-  <!-- PROJECT 6 -->
-  <div class="project">
-    <div class="project-header">
-      <h2 class="project-title">AI Image Processing Platform</h2>
-      <div class="project-links">
-        <a href="https://github.com/Jjvers/imgproo1">GitHub</a>
+    <!-- PROJECT 6 -->
+    <div class="project">
+      <div class="project-header">
+        <div class="project-title">AI Image Processing Platform</div>
+        <div class="project-links"><a href="https://github.com/Jjvers/imgproo1">GitHub</a></div>
       </div>
+      <div class="project-stack">React · Python · TensorFlow · FastAPI · Computer Vision</div>
+      <p class="project-desc">
+        A comprehensive web-based suite for AI-powered image editing, wrapping multiple deep learning models into a GPU-accelerated FastAPI backend with a clean React frontend.
+      </p>
+      <ul class="bullets">
+        <li>Implemented U-Net architecture for automatic background removal with detailed edge mask refinement</li>
+        <li>Integrated ESRGAN for 4× image super-resolution upscaling without visible artifact degradation</li>
+        <li>Designed VGG19-based neural style transfer allowing art-driven image resynthesis via REST API</li>
+      </ul>
     </div>
-    <div class="tech-stack">
-      React, Python, TensorFlow, Computer Vision, FastAPI
-    </div>
-    <p class="project-intro">
-      This web application serves as a comprehensive suite for AI-driven image editing, wrapping several complex deep learning models into a streamlined user interface. Because the operations are computationally intensive, I engineered a GPU-accelerated backend to handle processing securely.
-    </p>
-    <ul class="project-features">
-      <li>Implemented a U-Net architecture to perform automatic background and object removal with detailed edge mask refinement.</li>
-      <li>Incorporated ESRGAN (Enhanced Super-Resolution Generative Adversarial Networks) to facilitate 4x automated image upscaling without artifact degradation.</li>
-      <li>Designed neural style transfer features utilizing VGG19 feature extraction, allowing art-based resynthesis of user images via REST API coordination.</li>
-    </ul>
+
   </div>
 
-  <div class="section-title" style="margin-top: 32px; font-size: 11pt;">Additional Projects</div>
-  
-  <div class="other-projects">
-    <!-- PROJECT 7 -->
-    <div class="other-project-row">
-      <h3 class="project-title">PallPaws – Pet Care Platform</h3>
-      <div class="tech-stack">React, Node.js, REST API, JWT</div>
-      <p class="project-intro">A full-stack pet care management portal that I built with a complete booking system for daycare and treatments. The backend relies on JWT authentication with role-based access control, powering a responsive scheduling calendar that syncs real-time availability states between clients and staff members.</p>
+  <!-- ADDITIONAL PROJECTS -->
+  <div class="section">
+    <div class="section-title">Additional Projects</div>
+
+    <div class="project">
+      <div class="project-header">
+        <div class="project-title">PallPaws – Full-Stack Pet Care Management Portal</div>
+        <div class="project-links"></div>
+      </div>
+      <div class="project-stack">React · Node.js · REST API · JWT Authentication</div>
+      <ul class="bullets">
+        <li>Built a booking system for pet daycare and treatments with JWT-based role-access control and a real-time scheduling calendar</li>
+      </ul>
     </div>
 
-    <!-- PROJECT 8 -->
-    <div class="other-project-row">
-      <h3 class="project-title">Coffee Shop Native Android App</h3>
-      <div class="tech-stack">Kotlin, Android SDK, Firebase, MVVM</div>
-      <p class="project-intro">A native Android e-commerce application developed using the Model-View-ViewModel architecture. The app integrates heavily with Firebase Services to handle real-time database syncing, user authentication, and push notifications, managing the full user journey from product browsing to order tracking.</p>
+    <div class="project">
+      <div class="project-header">
+        <div class="project-title">Coffee Shop Native Android App</div>
+        <div class="project-links"></div>
+      </div>
+      <div class="project-stack">Kotlin · Android SDK · Firebase · MVVM Architecture</div>
+      <ul class="bullets">
+        <li>Developed a native e-commerce app with MVVM pattern, Firebase real-time sync, authentication, and push notifications covering the full user journey from browsing to order tracking</li>
+      </ul>
     </div>
 
-    <!-- PROJECT 9 -->
-    <div class="other-project-row">
-      <h3 class="project-title">Hypothermia – 3D Survival Game</h3>
-      <div class="tech-stack">C#, Unity Engine, Blender</div>
-      <p class="project-intro">A 3D simulation and survival game where I hand-modeled the characters and environment assets using Blender. The game logic programmed in C# features custom physics, distinct particle systems for weather generation, and survival state machines dynamically driven by an in-game temperature variable.</p>
+    <div class="project">
+      <div class="project-header">
+        <div class="project-title">Hypothermia – 3D Survival Simulation Game</div>
+        <div class="project-links"></div>
+      </div>
+      <div class="project-stack">C# · Unity Engine · Blender</div>
+      <ul class="bullets">
+        <li>Hand-modeled characters and environment assets in Blender; implemented custom physics, weather particle systems, and survival state machines driven by a dynamic temperature variable</li>
+      </ul>
     </div>
   </div>
 
-  <div class="page-footer">
-    <span>Johana Veronica Setiawan</span>
-    <span>3 / 3</span>
+  <div class="page-foot">
+    <span>Johana Veronica Setiawan — Project Portfolio</span>
+    <span>2 / 2</span>
   </div>
-</div>
+</div><!-- /page 2 -->
 
-</div>
+</div><!-- /page-wrapper -->
 </body>
 </html>
