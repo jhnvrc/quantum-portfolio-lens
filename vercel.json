@@ -1,5 +1,7 @@
 {
   "rewrites": [
+    { "source": "/cv.html", "destination": "/cv.html" },
+    { "source": "/portfolio.html", "destination": "/portfolio.html" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
