@@ -8,6 +8,13 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    /* ── PRINT CONFIG ── */
+    @page {
+      size: A4;
+      margin: 14mm 17mm 12mm 17mm;
+    }
+
+    /* ── SCREEN: body bg ── */
     body {
       font-family: 'Inter', 'Calibri', Arial, sans-serif;
       font-size: 10pt;
@@ -45,20 +52,7 @@
     }
     .btn-print:hover { background: #333; }
 
-    @media print {
-      body { background: #fff; }
-      .print-bar { display: none !important; }
-      .page-wrapper { margin: 0; width: 100%; }
-      .page {
-        box-shadow: none;
-        margin: 0;
-        height: auto !important;
-        overflow: visible !important;
-        width: 100%;
-      }
-    }
-
-    /* ── PAGE ── */
+    /* ── SCREEN: page card look ── */
     .page-wrapper {
       margin: 48px auto 40px;
       width: 210mm;
@@ -66,11 +60,28 @@
 
     .page {
       width: 210mm;
-      height: 297mm;
       background: #fff;
-      padding: 14mm 17mm 11mm 17mm;
+      padding: 14mm 17mm 12mm 17mm;
       box-shadow: 0 2px 12px rgba(0,0,0,0.12);
-      overflow: hidden;
+    }
+
+    /* ── PRINT: strip everything, let content flow ── */
+    @media print {
+      .print-bar  { display: none !important; }
+
+      body {
+        background: white !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      .page-wrapper {
+        display: contents !important;
+      }
+
+      .page {
+        display: contents !important;
+      }
     }
 
     /* ── HEADER ── */
@@ -190,25 +201,6 @@
       flex-shrink: 0;
       margin-left: 10px;
     }
-
-    /* ── ORG ACTIVITIES TABLE ── */
-    .org-table { width: 100%; border-collapse: collapse; font-size: 8.5pt; }
-    .org-table th {
-      text-align: left;
-      font-weight: 700;
-      padding: 3px 6px 3px 0;
-      border-bottom: 1px solid #ccc;
-      font-size: 8pt;
-    }
-    .org-table td {
-      padding: 3px 6px 3px 0;
-      border-bottom: 1px solid #eee;
-      vertical-align: top;
-      line-height: 1.35;
-    }
-    .org-table tr:last-child td { border-bottom: none; }
-
-    @page { margin: 0; size: A4; }
   </style>
 </head>
 <body>
@@ -216,7 +208,7 @@
 <div class="print-bar">
   <strong>Johana Veronica Setiawan – CV (ATS Format)</strong>
   <button class="btn-print" onclick="window.print()">🖨 Save as PDF</button>
-  <span>Print dialog → Destination: "Save as PDF" → Paper: A4 → Margins: None → Background graphics: ON</span>
+  <span>Print dialog → Destination: "Save as PDF" → Paper: A4 → Background graphics: ON</span>
 </div>
 
 <div class="page-wrapper">
@@ -240,7 +232,7 @@
   <div class="section">
     <div class="section-title">Profile</div>
     <p style="font-size: 8.5pt; color: #222; line-height: 1.5;">
-      Informatics student at President University (GPA 3.88/4.00) with a strong focus on AI/ML and hands-on experience across the full development stack. Skilled in deep learning, computer vision, and NLP alongside frontend and backend systems. Currently <strong>open for internship</strong> opportunities in AI/ML or software engineering.
+      Informatics student at President University (GPA 3.88/4.00) specializing in Artificial Intelligence and Machine Learning, with practical experience building end-to-end solutions across the full development stack. Proficient in deep learning, computer vision, and NLP, complemented by solid frontend and backend engineering skills. Passionate about applying AI to solve real-world problems and actively seeking an internship opportunity where I can contribute meaningfully and grow within a dynamic team.
     </p>
   </div>
 
