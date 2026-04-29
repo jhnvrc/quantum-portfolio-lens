@@ -48,8 +48,14 @@
     @media print {
       body { background: #fff; }
       .print-bar { display: none !important; }
-      .page-wrapper { margin: 0; }
-      .page { box-shadow: none; margin: 0; }
+      .page-wrapper { margin: 0; width: 100%; }
+      .page {
+        box-shadow: none;
+        margin: 0;
+        height: auto !important;
+        overflow: visible !important;
+        width: 100%;
+      }
     }
 
     /* ── PAGE ── */
