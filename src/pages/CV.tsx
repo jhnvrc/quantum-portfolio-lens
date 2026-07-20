@@ -2,13 +2,12 @@ import { personalInfo, aboutMe, skills, projects, experience, certificates, lang
 
 const CV = () => {
   const featuredProjects = projects.filter((p) => p.featured);
-  const otherProjects = projects.filter((p) => !p.featured);
 
   return (
     <div className="cv-root">
       {/* ── Print / Back bar ── */}
       <div className="no-print cv-toolbar">
-        <span className="cv-toolbar-title">Johana Veronica Setiawan – CV (ATS Format)</span>
+        <span className="cv-toolbar-title">Johana Veronica Setiawan – CV (Harvard ATS Format)</span>
         <div className="cv-toolbar-actions">
           <button onClick={() => window.print()} className="cv-btn-primary">
             🖨 Save as PDF
@@ -18,12 +17,12 @@ const CV = () => {
           </button>
         </div>
         <span className="cv-toolbar-hint">
-          Print dialog → Destination: "Save as PDF" → Paper: A4 → Background graphics: ON
+          Print → Save as PDF → Paper: A4 → Margins: None → Background graphics: ON
         </span>
       </div>
 
       {/* ══════════════════════════════════════
-          PAGE 1 — Profile · Education · Skills · Experience
+          PAGE 1 — Header · Profile · Education · Skills · Experience
           ══════════════════════════════════════ */}
       <div className="cv-page">
 
@@ -82,7 +81,7 @@ const CV = () => {
           <div className="cv-skills-grid">
             {skills.categories.map((cat, i) => (
               <div key={i} className="cv-skill-row">
-                <span className="cv-skill-label">{cat.name}:</span>{" "}
+                <span className="cv-skill-label">{cat.name}: </span>
                 <span className="cv-skill-values">{cat.skills.join(", ")}</span>
               </div>
             ))}
@@ -92,20 +91,18 @@ const CV = () => {
         {/* ── ORGANIZATIONAL EXPERIENCE ── */}
         <section className="cv-section">
           <div className="cv-section-title">ORGANIZATIONAL EXPERIENCE</div>
-          {experience.organizational
-            .filter((e) => e.category === "leadership" || e.id === "6")
-            .map((exp) => (
-              <div key={exp.id} className="cv-entry">
-                <div className="cv-entry-header">
-                  <span className="cv-entry-title">{exp.role}</span>
-                  <span className="cv-entry-right">{exp.period}</span>
-                </div>
-                <div className="cv-entry-sub">{exp.organization}</div>
-                <ul className="cv-bullets">
-                  {exp.achievements.map((a, i) => <li key={i}>{a}</li>)}
-                </ul>
+          {experience.organizational.map((exp) => (
+            <div key={exp.id} className="cv-entry cv-entry-tight">
+              <div className="cv-entry-header">
+                <span className="cv-entry-title">{exp.role}</span>
+                <span className="cv-entry-right">{exp.period}</span>
               </div>
-            ))}
+              <div className="cv-entry-sub">{exp.organization}</div>
+              <ul className="cv-bullets">
+                {exp.achievements.slice(0, 2).map((a, i) => <li key={i}>{a}</li>)}
+              </ul>
+            </div>
+          ))}
         </section>
 
         {/* ── LANGUAGES ── */}
@@ -125,16 +122,15 @@ const CV = () => {
       </div>
 
       {/* ══════════════════════════════════════
-          PAGE 2 — Projects · Certificates · Activities
+          PAGE 2 — Projects · Certifications
           ══════════════════════════════════════ */}
       <div className="cv-page">
 
         {/* ── PROJECTS ── */}
         <section className="cv-section">
           <div className="cv-section-title">PROJECTS</div>
-
           {featuredProjects.map((project) => (
-            <div key={project.id} className="cv-entry">
+            <div key={project.id} className="cv-entry cv-entry-tight">
               <div className="cv-entry-header">
                 <span className="cv-entry-title">{project.title}</span>
                 <span className="cv-entry-right cv-stack">{project.techStack.slice(0, 5).join(" · ")}</span>
@@ -150,18 +146,6 @@ const CV = () => {
                   )}
                 </div>
               )}
-              <ul className="cv-bullets">
-                {project.features.slice(0, 3).map((f, i) => <li key={i}>{f}</li>)}
-              </ul>
-            </div>
-          ))}
-
-          {otherProjects.slice(0, 3).map((project) => (
-            <div key={project.id} className="cv-entry">
-              <div className="cv-entry-header">
-                <span className="cv-entry-title">{project.title}</span>
-                <span className="cv-entry-right cv-stack">{project.techStack.slice(0, 4).join(" · ")}</span>
-              </div>
               <ul className="cv-bullets">
                 {project.features.slice(0, 2).map((f, i) => <li key={i}>{f}</li>)}
               </ul>
@@ -187,31 +171,6 @@ const CV = () => {
           ))}
         </section>
 
-        {/* ── ORGANIZATIONAL ACTIVITIES ── */}
-        <section className="cv-section">
-          <div className="cv-section-title">ORGANIZATIONAL ACTIVITIES</div>
-          <table className="cv-org-table">
-            <thead>
-              <tr>
-                <th>Role</th>
-                <th>Organization</th>
-                <th>Period</th>
-                <th>Type</th>
-              </tr>
-            </thead>
-            <tbody>
-              {experience.organizational.map((exp) => (
-                <tr key={exp.id}>
-                  <td>{exp.role}</td>
-                  <td>{exp.organization}</td>
-                  <td>{exp.period}</td>
-                  <td style={{ textTransform: "capitalize" }}>{exp.category}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </section>
-
         <div className="cv-page-num">2 / 2</div>
       </div>
 
@@ -226,7 +185,7 @@ const CV = () => {
           font-size: 10pt;
           color: #111;
           background: #e5e7eb;
-          line-height: 1.45;
+          line-height: 1.4;
           min-height: 100vh;
           padding-top: 52px;
         }
@@ -268,10 +227,11 @@ const CV = () => {
         /* ── PAGE ── */
         .cv-page {
           width: 210mm;
-          min-height: 297mm;
+          height: 297mm;
+          overflow: hidden;
           background: #fff;
           margin: 0 auto 16px;
-          padding: 18mm 18mm 14mm 18mm;
+          padding: 14mm 16mm 12mm 16mm;
           box-shadow: 0 2px 12px rgba(0,0,0,0.12);
           position: relative;
         }
@@ -279,85 +239,86 @@ const CV = () => {
         /* ── HEADER ── */
         .cv-header {
           text-align: center;
-          padding-bottom: 10px;
-          margin-bottom: 12px;
+          padding-bottom: 8px;
+          margin-bottom: 10px;
           border-bottom: 2px solid #111;
         }
         .cv-name {
-          font-size: 19pt;
+          font-size: 18pt;
           font-weight: 800;
           letter-spacing: 0.06em;
           line-height: 1.15;
-          margin-bottom: 3px;
+          margin-bottom: 2px;
         }
         .cv-headline {
-          font-size: 9.5pt;
+          font-size: 9pt;
           font-weight: 500;
           color: #333;
-          margin-bottom: 6px;
+          margin-bottom: 5px;
         }
         .cv-contacts {
-          font-size: 8.5pt;
+          font-size: 8pt;
           color: #333;
           display: flex;
           flex-wrap: wrap;
           justify-content: center;
-          gap: 2px 4px;
+          gap: 1px 4px;
         }
-        .cv-sep { color: #888; margin: 0 3px; }
+        .cv-sep { color: #888; margin: 0 2px; }
         .cv-link { color: #111; text-decoration: none; }
 
         /* ── SECTION ── */
-        .cv-section { margin-bottom: 13px; }
+        .cv-section { margin-bottom: 10px; }
         .cv-section-title {
-          font-size: 9pt;
+          font-size: 8.5pt;
           font-weight: 700;
           letter-spacing: 0.1em;
-          border-bottom: 1px solid #111;
+          border-bottom: 1.5px solid #111;
           padding-bottom: 2px;
-          margin-bottom: 8px;
+          margin-bottom: 6px;
         }
-        .cv-body-text { font-size: 9.5pt; color: #222; line-height: 1.55; }
+        .cv-body-text { font-size: 9pt; color: #222; line-height: 1.5; }
 
         /* ── ENTRY ── */
-        .cv-entry { margin-bottom: 9px; }
+        .cv-entry { margin-bottom: 7px; }
+        .cv-entry-tight { margin-bottom: 5px; }
         .cv-entry-header {
           display: flex;
           justify-content: space-between;
           align-items: baseline;
-          gap: 10px;
+          gap: 8px;
         }
-        .cv-entry-title { font-size: 10pt; font-weight: 700; }
-        .cv-entry-right { font-size: 8.5pt; color: #333; flex-shrink: 0; text-align: right; }
+        .cv-entry-title { font-size: 9.5pt; font-weight: 700; }
+        .cv-entry-right { font-size: 8pt; color: #333; flex-shrink: 0; text-align: right; }
         .cv-stack { font-style: italic; }
-        .cv-entry-sub { font-size: 9pt; font-style: italic; color: #333; margin: 2px 0; }
+        .cv-entry-sub { font-size: 8.5pt; font-style: italic; color: #333; margin: 1px 0 2px; }
         .cv-gpa { font-style: normal; font-weight: 600; }
 
         /* ── BULLETS ── */
-        .cv-bullets { list-style: disc; padding-left: 16px; margin-top: 3px; }
+        .cv-bullets { list-style: disc; padding-left: 14px; margin-top: 2px; }
         .cv-bullets li {
-          font-size: 9pt;
+          font-size: 8.5pt;
           color: #222;
-          margin-bottom: 2px;
-          line-height: 1.4;
+          margin-bottom: 1px;
+          line-height: 1.35;
         }
 
         /* ── SKILLS ── */
         .cv-skills-grid {
           display: grid;
           grid-template-columns: 1fr 1fr;
-          gap: 4px 20px;
+          gap: 3px 18px;
         }
-        .cv-skill-row { font-size: 9pt; line-height: 1.4; }
+        .cv-skill-row { font-size: 8.5pt; line-height: 1.35; }
         .cv-skill-label { font-weight: 700; }
         .cv-skill-values { color: #222; }
 
         /* ── LANGUAGES ── */
-        .cv-lang-row { font-size: 9.5pt; display: flex; gap: 16px; }
+        .cv-lang-row { font-size: 9pt; display: flex; gap: 14px; }
         .cv-lang-item { display: flex; align-items: center; gap: 4px; }
 
         /* ── PROJECT LINKS ── */
-        .cv-project-links { font-size: 8.5pt; color: #333; margin-bottom: 2px; }
+        .cv-project-links { font-size: 8pt; color: #333; margin-bottom: 1px; }
         .cv-project-links .cv-link { text-decoration: underline; }
 
         /* ── CERT ── */
@@ -365,40 +326,26 @@ const CV = () => {
           display: flex;
           justify-content: space-between;
           align-items: baseline;
-          font-size: 9pt;
-          margin-bottom: 4px;
+          font-size: 8.5pt;
+          margin-bottom: 3px;
           gap: 12px;
         }
         .cv-cert-left { color: #222; }
-        .cv-cert-right { color: #333; flex-shrink: 0; font-size: 8.5pt; }
-
-        /* ── ORG TABLE ── */
-        .cv-org-table { width: 100%; border-collapse: collapse; font-size: 9pt; }
-        .cv-org-table th {
-          text-align: left;
-          font-weight: 700;
-          padding: 4px 8px 4px 0;
-          border-bottom: 1px solid #ccc;
-          font-size: 8.5pt;
-        }
-        .cv-org-table td {
-          padding: 4px 8px 4px 0;
-          border-bottom: 1px solid #eee;
-          vertical-align: top;
-          line-height: 1.4;
-        }
-        .cv-org-table tr:last-child td { border-bottom: none; }
+        .cv-cert-right { color: #333; flex-shrink: 0; font-size: 8pt; }
 
         /* ── PAGE NUM ── */
         .cv-page-num {
           position: absolute;
-          bottom: 8mm; right: 18mm;
-          font-size: 8pt; color: #999;
+          bottom: 8mm; right: 16mm;
+          font-size: 7.5pt; color: #999;
         }
 
         /* ══ PRINT ══ */
         @media print {
-          @page { size: A4; margin: 0; }
+          @page {
+            size: A4;
+            margin: 0;
+          }
           .no-print { display: none !important; }
           .cv-root {
             background: #fff;
@@ -406,8 +353,14 @@ const CV = () => {
           }
           .cv-page {
             box-shadow: none;
-            page-break-after: always;
             margin: 0;
+            page-break-after: always;
+            break-after: page;
+            overflow: hidden;
+          }
+          .cv-page:last-of-type {
+            page-break-after: avoid;
+            break-after: avoid;
           }
         }
       `}</style>
