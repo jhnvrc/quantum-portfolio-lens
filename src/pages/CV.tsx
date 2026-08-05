@@ -7,11 +7,13 @@ const CV = () => {
     <div className="cv-root">
       {/* ── Print / Back bar ── */}
       <div className="no-print cv-toolbar">
-        <span className="cv-toolbar-title">Johana Veronica Setiawan – CV (Harvard ATS Format)</span>
+        <span className="cv-toolbar-title">Johana Veronica Setiawan – CV</span>
         <div className="cv-toolbar-actions">
           <button onClick={() => window.print()} className="cv-btn-primary">
             🖨 Save as PDF
           </button>
+          <a href="/cv-ai.html" className="cv-btn-secondary" style={{textDecoration:'none'}}>AI/ML CV</a>
+          <a href="/cv-fullstack.html" className="cv-btn-secondary" style={{textDecoration:'none'}}>Full-Stack CV</a>
           <button onClick={() => window.history.back()} className="cv-btn-secondary">
             ← Back
           </button>

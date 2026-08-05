@@ -2,8 +2,8 @@
 
 export const personalInfo = {
   name: "Johana Veronica Setiawan",
-  headline: "AI Enthusiast | Full-Stack Developer | Computer Science Student",
-  tagline: "Passionate about AI-driven solutions, from computer vision to NLP — while also building polished full-stack web and mobile applications.",
+  headline: "Computer Vision Engineer | AI/ML Enthusiast | Full-Stack Developer",
+  tagline: "Specializing in computer vision and deep learning, from real-time object detection to biometric recognition, while building production-ready full-stack applications.",
   email: "johanaveronicasetiawan@gmail.com",
   phone: "+62 813-8733-7709",
   location: "Cikarang, Indonesia",
@@ -21,14 +21,14 @@ export const personalInfo = {
 };
 
 export const aboutMe = {
-  introduction: `Informatics student at President University with a strong interest in AI/ML and hands-on experience across the full development stack. I enjoy exploring deep learning, computer vision, and NLP while also building frontend interfaces and backend systems.
+  introduction: `Informatics student at President University specializing in Computer Vision and AI/ML. I have hands-on experience building real-time object detection systems (YOLO), biometric face recognition, and gaze tracking pipelines, while also developing the full-stack web applications that bring these models to production.
 
-I'm always eager to learn, take on new challenges, and collaborate on projects that make a real difference — whether it's an AI model, a web app, or a mobile application.`,
+I'm always eager to learn, take on new challenges, and collaborate on projects that make a real difference, whether it's a PPE compliance detection system, a sign language recognition model, or an AI-powered learning platform.`,
 
   education: [
     {
       degree: "Undergraduate of Informatics",
-      institution: "President University — Faculty of Computer Science",
+      institution: "President University, Faculty of Computer Science",
       year: "2024 - Present (Expected 2027)",
       gpa: "3.87/4.00 (up to 5th semester)",
       highlights: ["Concentration in Artificial Intelligence"],
@@ -42,10 +42,10 @@ I'm always eager to learn, take on new challenges, and collaborate on projects t
   ],
 
   goals: [
-    "Gain real-world experience through an AI/ML or software engineering internship",
-    "Deepen my understanding of NLP and computer vision through research",
-    "Grow as a full-stack developer by building end-to-end projects",
-    "Contribute to open-source projects and the developer community",
+    "Build and deploy production-ready computer vision systems for real-world applications",
+    "Deepen expertise in object detection, image segmentation, and video analysis",
+    "Gain industry experience through an AI/ML or computer vision engineering internship",
+    "Contribute to open-source computer vision and deep learning projects",
   ],
 };
 
@@ -83,6 +83,22 @@ export const skills = {
 };
 
 export const projects = [
+  {
+    id: "10",
+    title: "SafetyHazard – AI Workplace Safety Platform",
+    description: "An AI-powered workplace safety monitoring platform that leverages computer vision to perform real-time PPE (Personal Protective Equipment) compliance detection and hazard analysis. Supports both live camera feeds and uploaded video analysis across configurable work areas (e.g., Spray/Decoration, Welding, Assembly). Uses YOLOv8/v11 object detection models to identify workers and verify PPE usage (safety glasses, gloves, aprons, helmets), then calculates a composite risk score with severity-weighted violation tracking. Features a multi-area dashboard with compliance heatmaps, historical trend analysis, and an integrated EHSS (Environment, Health, Safety & Sustainability) knowledge base.",
+    features: [
+      "Developed a real-time PPE compliance detection system using YOLOv8/v11 object detection to identify workers and verify safety equipment (glasses, gloves, aprons, helmets) across multiple configurable work zones.",
+      "Engineered a composite risk scoring engine that calculates area-level hazard scores based on severity-weighted PPE violation rates, worker count, and compliance percentages, flagging high-risk zones in real-time.",
+      "Built a full-stack safety monitoring dashboard with React and FastAPI, featuring live camera integration, video upload analysis with frame-by-frame detection, and interactive compliance reports with historical trend visualization.",
+      "Integrated an EHSS knowledge base module providing contextual safety regulations, best practices, and incident response guidelines for workplace safety officers.",
+    ],
+    techStack: ["React", "TypeScript", "Python", "FastAPI", "YOLOv8/v11", "Computer Vision", "OpenCV"],
+    image: "safetyhazard",
+    githubUrl: "",
+    liveUrl: "",
+    featured: true,
+  },
   {
     id: "1",
     title: "Sentra – Media Bias Analysis",
@@ -223,6 +239,7 @@ export const projects = [
     liveUrl: "",
     featured: false,
   },
+
 ];
 
 export const languages = [
@@ -337,6 +354,15 @@ export const certificates = [
     year: "2026",
     image: "/certificates/dicoding-basic-ai.webp",
     credentialUrl: "https://dicoding.com/certificates/QLZ99R1LMZ5D",
+    featured: true,
+  },
+  {
+    id: "6",
+    title: "Google AI Professional Certificate",
+    issuer: "Google (Coursera)",
+    year: "2026",
+    image: "/image.png",
+    credentialUrl: "https://coursera.org/verify/professional-cert/1PTTF6CI6J1T",
     featured: true,
   },
 ];

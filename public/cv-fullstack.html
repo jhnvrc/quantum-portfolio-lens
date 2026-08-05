@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Johana Veronica Setiawan – CV (Full-Stack Developer)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    @page {
+      size: A4;
+      margin: 14mm 17mm 12mm 17mm;
+    }
+
+    body {
+      font-family: 'Inter', 'Calibri', Arial, sans-serif;
+      font-size: 10pt;
+      color: #111;
+      background: #e5e7eb;
+      line-height: 1.45;
+      print-color-adjust: exact;
+      -webkit-print-color-adjust: exact;
+    }
+
+    .print-bar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 999;
+      background: #fff;
+      border-bottom: 1px solid #ccc;
+      padding: 8px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 9pt;
+      color: #555;
+    }
+    .btn-print {
+      padding: 6px 18px;
+      background: #111;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 9pt;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .btn-print:hover { background: #333; }
+    .btn-switch {
+      padding: 6px 14px;
+      background: #f3f4f6;
+      color: #333;
+      border: 1px solid #d1d5db;
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 8.5pt;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn-switch:hover { background: #e5e7eb; }
+    .cv-tag {
+      display: inline-block;
+      padding: 2px 8px;
+      background: #2563eb;
+      color: #fff;
+      border-radius: 3px;
+      font-size: 8pt;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    .page-wrapper {
+      margin: 48px auto 40px;
+      width: 210mm;
+    }
+
+    .page {
+      width: 210mm;
+      background: #fff;
+      padding: 14mm 17mm 12mm 17mm;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+    }
+
+    @media print {
+      .print-bar  { display: none !important; }
+      body { background: white !important; margin: 0 !important; padding: 0 !important; }
+      .page-wrapper { display: contents !important; }
+      .page { display: contents !important; }
+    }
+
+    .cv-header {
+      text-align: center;
+      margin-bottom: 8px;
+      padding-bottom: 7px;
+      border-bottom: 1.5px solid #111;
+    }
+    .cv-name {
+      font-size: 17pt;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      line-height: 1.1;
+      margin-bottom: 3px;
+    }
+    .cv-headline {
+      font-size: 9.5pt;
+      font-weight: 500;
+      color: #333;
+      margin-bottom: 4px;
+    }
+    .cv-contacts {
+      font-size: 8pt;
+      color: #333;
+    }
+    .cv-contacts span { margin: 0 5px; }
+    .cv-contacts a { color: #111; text-decoration: none; }
+
+    .section { margin-bottom: 9px; }
+    .section-title {
+      font-size: 8.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border-bottom: 1px solid #111;
+      padding-bottom: 2px;
+      margin-bottom: 6px;
+    }
+
+    .entry { margin-bottom: 6px; }
+    .entry:last-child { margin-bottom: 0; }
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .entry-title {
+      font-size: 9.5pt;
+      font-weight: 700;
+    }
+    .entry-right {
+      font-size: 8pt;
+      color: #444;
+      text-align: right;
+      flex-shrink: 0;
+      margin-left: 10px;
+    }
+    .entry-sub {
+      font-size: 8.5pt;
+      font-style: italic;
+      color: #444;
+      margin-bottom: 2px;
+    }
+    .entry-detail {
+      font-size: 8pt;
+      color: #555;
+    }
+
+    .bullets {
+      list-style: none;
+      margin-top: 2px;
+      padding-left: 0;
+    }
+    .bullets li {
+      font-size: 8.5pt;
+      color: #222;
+      padding-left: 12px;
+      position: relative;
+      margin-bottom: 1px;
+      line-height: 1.4;
+    }
+    .bullets li::before {
+      content: '•';
+      position: absolute;
+      left: 2px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px 18px;
+    }
+    .skill-row {
+      font-size: 8.5pt;
+      line-height: 1.4;
+    }
+    .skill-label { font-weight: 600; }
+
+    .cert-entry {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 3px;
+    }
+    .cert-left { font-size: 8.5pt; }
+    .cert-title-text { font-weight: 600; }
+    .cert-right {
+      font-size: 8pt;
+      color: #444;
+      text-align: right;
+      flex-shrink: 0;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="print-bar">
+  <strong>Johana Veronica Setiawan – CV</strong>
+  <span class="cv-tag">Full-Stack Developer</span>
+  <button class="btn-print" onclick="window.print()">🖨 Save as PDF</button>
+  <a href="/cv-ai.html" class="btn-switch">↔ Switch to AI/ML CV</a>
+  <span>Print dialog → Destination: "Save as PDF" → Paper: A4 → Background graphics: ON</span>
+</div>
+
+<div class="page-wrapper">
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="cv-header">
+    <div class="cv-name">JOHANA VERONICA SETIAWAN</div>
+    <div class="cv-headline">Full-Stack Developer &nbsp;|&nbsp; AI-Integrated Web Applications &nbsp;|&nbsp; Computer Science Student</div>
+    <div class="cv-contacts">
+      <span>johanaveronicasetiawan@gmail.com</span> |
+      <span>+62 813-8733-7709</span> |
+      <span>Cikarang, Indonesia</span> |
+      <span><a href="https://linkedin.com/in/johanavsetiawan">linkedin.com/in/johanavsetiawan</a></span> |
+      <span><a href="https://github.com/Jjvers">github.com/Jjvers</a></span> |
+      <span><a href="https://johanavs-portofolio.vercel.app">johanavs-portofolio.vercel.app</a></span>
+    </div>
+  </div>
+
+  <!-- PROFILE -->
+  <div class="section">
+    <div class="section-title">Profile</div>
+    <p style="font-size: 8.5pt; color: #222; line-height: 1.5;">
+      Full-stack developer and Informatics student at President University (GPA 3.87/4.00) with hands-on experience building production-ready web and mobile applications from frontend to backend. Proficient in React, Next.js, Node.js, and FastAPI, with a unique edge in integrating AI/ML models, including computer vision and NLP, directly into user-facing products. Experienced in responsive UI design, RESTful API architecture, authentication systems, and real-time data pipelines. Seeking a full-stack development internship to build impactful, scalable applications.
+    </p>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="section">
+    <div class="section-title">Education</div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <div class="entry-title">Undergraduate of Informatics — Concentration: Artificial Intelligence</div>
+        <div class="entry-right">2024 – Present (Expected 2027)</div>
+      </div>
+      <div class="entry-sub">President University, Faculty of Computer Science — Cikarang, Indonesia</div>
+      <div class="entry-detail">GPA: 3.87 / 4.00 (up to 5th semester)</div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <div class="entry-title">High School Diploma — Science Track</div>
+        <div class="entry-right">2021 – 2024</div>
+      </div>
+      <div class="entry-sub">SMA Pangudi Luhur Bernardus Deltamas — Cikarang, Indonesia</div>
+      <div class="entry-detail">Top 10% of graduating class</div>
+    </div>
+  </div>
+
+  <!-- SKILLS (Frontend/Backend first) -->
+  <div class="section">
+    <div class="section-title">Skills</div>
+    <div class="skills-grid">
+      <div class="skill-row"><span class="skill-label">Frontend:</span> React, Next.js, TypeScript, Tailwind CSS, HTML/CSS, Responsive Design</div>
+      <div class="skill-row"><span class="skill-label">Backend:</span> Node.js, FastAPI, Flask, REST API, Firebase, JWT Authentication</div>
+      <div class="skill-row"><span class="skill-label">Programming:</span> JavaScript, TypeScript, Python, Java, C#, SQL, Kotlin</div>
+      <div class="skill-row"><span class="skill-label">Mobile:</span> Kotlin, Android (MVVM), Firebase Integration</div>
+      <div class="skill-row"><span class="skill-label">AI Integration:</span> TensorFlow, OpenCV, YOLOv8/v11, Computer Vision, NLP</div>
+      <div class="skill-row"><span class="skill-label">Tools:</span> Git, GitHub, VS Code, Jupyter, Blender, Vercel</div>
+    </div>
+  </div>
+
+  <!-- FULL-STACK PROJECTS (web/mobile projects prioritized) -->
+  <div class="section">
+    <div class="section-title">Technical Projects</div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <div class="entry-title">SafetyHazard – AI Workplace Safety Platform</div>
+        <div class="entry-right">React, TypeScript, FastAPI, YOLOv8/v11, OpenCV</div>
+      </div>
+      <ul class="bullets">
+        <li>Built a full-stack safety monitoring dashboard with React and FastAPI, featuring live camera integration, video upload with frame-by-frame analysis, and interactive compliance reports.</li>
+        <li>Designed configurable work zone management UI with real-time risk scoring, PPE violation tracking, and historical trend visualization.</li>
+        <li>Integrated an EHSS knowledge base module with multi-language support (EN/ID) and responsive sidebar navigation.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <div class="entry-title">Sentra – Media Bias Analysis Platform</div>
+        <div class="entry-right">React, FastAPI, Python, LLM, RAG</div>
+      </div>
+      <ul class="bullets">
+        <li>Engineered a full-stack AI platform with React frontend and FastAPI backend, implementing RAG pipeline integration for real-time multi-source news analysis.</li>
+        <li>Built interactive UI for bias visualization, sentiment scoring, and source alignment with a dynamic grounding toggle for factual vs. creative responses.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <div class="entry-title">Gold Analytics – AI Trading Dashboard</div>
+        <div class="entry-right">React, TypeScript, Python, FastAPI, REST API</div>
+      </div>
+      <ul class="bullets">
+        <li>Developed a responsive trading dashboard with real-time data visualization, multi-overlay technical indicators (RSI, MACD, Bollinger Bands), and scenario comparison UI.</li>
+        <li>Deployed production app on Vercel with LSTM-powered price prediction API and interactive charting components.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <div class="entry-title">HeartGuard Pro – AI Cardiac Risk Predictor</div>
+        <div class="entry-right">React, TypeScript, FastAPI, Tailwind CSS</div>
+      </div>
+      <ul class="bullets">
+        <li>Built an interactive clinical assessment dashboard with React and FastAPI delivering personalized health reports with confidence scoring and real-time vital sign analysis.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <div class="entry-title">PallPaws – Pet Care Management Platform</div>
+        <div class="entry-right">React, Node.js, Tailwind CSS, REST API</div>
+      </div>
+      <ul class="bullets">
+        <li>Developed a full-stack pet care platform with JWT authentication, role-based access control, responsive booking calendar, and pet health tracking dashboard.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <div class="entry-title">Coffee Shop Mobile App</div>
+        <div class="entry-right">Kotlin, Android, Firebase, MVVM</div>
+      </div>
+      <ul class="bullets">
+        <li>Built a native Android e-commerce app with Firebase Auth, Realtime Database, product catalog with filtering, shopping cart, and push notification order tracking.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ORGANIZATIONAL EXPERIENCE -->
+  <div class="section">
+    <div class="section-title">Organizational Experience</div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <div class="entry-title">Vice of Division Relations &amp; Communication</div>
+        <div class="entry-right">2025 – Present</div>
+      </div>
+      <div class="entry-sub">PUMA Informatics, President University</div>
+      <ul class="bullets">
+        <li>Oversee external communication, event supervision, and faculty-level event planning and execution</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <div class="entry-title">Project Manager – Unitics Welcome Event</div>
+        <div class="entry-right">Dec 2024</div>
+      </div>
+      <div class="entry-sub">PUMA Informatics, President University</div>
+      <ul class="bullets">
+        <li>Led end-to-end event lifecycle from concept to execution, coordinating multi-team efforts across logistics, design, and documentation</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <div class="entry-title">Supervisor – Company Visit 2026</div>
+        <div class="entry-right">2026</div>
+      </div>
+      <div class="entry-sub">PUMA Informatics, President University</div>
+      <ul class="bullets">
+        <li>Led logistics planning and participant coordination for company visit to Tractor United Group</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CERTIFICATIONS -->
+  <div class="section">
+    <div class="section-title">Certifications</div>
+    <div class="cert-entry">
+      <div class="cert-left"><span class="cert-title-text">Google AI Professional Certificate</span> — Google (Coursera) · 7 Courses</div>
+      <div class="cert-right">2026 &nbsp;|&nbsp; <a href="https://coursera.org/verify/professional-cert/1PTTF6CI6J1T" style="color:#333;">Verify</a></div>
+    </div>
+    <div class="cert-entry">
+      <div class="cert-left"><span class="cert-title-text">Belajar Dasar Pemrograman Web</span> — Dicoding Indonesia</div>
+      <div class="cert-right">2026 &nbsp;|&nbsp; <a href="https://dicoding.com/certificates/GRX5W2K7KZ0M" style="color:#333;">Verify</a></div>
+    </div>
+    <div class="cert-entry">
+      <div class="cert-left"><span class="cert-title-text">Elements of AI</span> — University of Helsinki &amp; MinnaLearn</div>
+      <div class="cert-right">2026 &nbsp;|&nbsp; <a href="https://certificates.mooc.fi/validate/ht5l4lp2up" style="color:#333;">Verify</a></div>
+    </div>
+    <div class="cert-entry">
+      <div class="cert-left"><span class="cert-title-text">Python</span> — Kaggle</div>
+      <div class="cert-right">2026</div>
+    </div>
+  </div>
+
+  <!-- LANGUAGES -->
+  <div class="section">
+    <div class="section-title">Languages</div>
+    <div style="display: flex; gap: 28px; font-size: 8.5pt;">
+      <span><strong>Indonesian</strong> — Native</span>
+      <span><strong>English</strong> — Professional Working Proficiency</span>
+    </div>
+  </div>
+
+</div><!-- /page -->
+</div><!-- /page-wrapper -->
+</body>
+</html>

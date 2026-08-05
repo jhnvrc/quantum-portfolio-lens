@@ -17,8 +17,10 @@ import sentraImg from "@/assets/project-sentra.png";
 import hypothermiaImg from "@/assets/project-hypothermia.png";
 import heartguardImg from "@/assets/project-heartguard.png";
 import goldAnalyticsImg from "@/assets/project-gold-analytics.png";
+import safetyhazardImg from "@/assets/project-safetyhazard.png";
 
 const projectImages: Record<string, string> = {
+  "safetyhazard": safetyhazardImg,
   "study-buddy": studyBuddyImg,
   "bisindo": bisindoImg,
   "coffee-app": coffeeAppImg,
